@@ -1,0 +1,31 @@
+# File Ownership Analyzer Configuration
+
+# Directory scanning settings
+scan:
+  directory: "."  # Default directory to scan
+  recursive: true  # Scan recursively in subdirectories
+  
+  # Exclusion settings
+  exclude:
+    patterns: []  # Regex patterns for files/paths to exclude
+      # Example: ["\\.git", "\\.DS_Store"]
+    directories: []  # Directory names to exclude
+      # Example: [".git", "node_modules", "__pycache__", ".venv"]
+
+# Output settings
+output:
+  directory: "output"  # Default output directory for reports
+
+# Report settings
+report:
+  include_file_list: false  # Include full file list in report
+  max_files_per_owner: 100  # Maximum files to list per owner
+  max_files_per_group: 100  # Maximum files to list per group
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/ownership_analyzer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

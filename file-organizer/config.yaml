@@ -1,0 +1,104 @@
+# File Organizer Configuration
+
+# Source directory to monitor for downloads
+source_directory: ~/Downloads
+
+# Destination base directory for organized files
+destination_base: ~/Organized
+
+# Category folders
+categories:
+  pictures:
+    folder: Pictures
+    extensions:
+      - .jpg
+      - .jpeg
+      - .png
+      - .gif
+      - .bmp
+      - .tiff
+      - .tif
+      - .webp
+      - .svg
+      - .ico
+      - .heic
+      - .raw
+      - .cr2
+      - .nef
+      - .orf
+      - .sr2
+
+  documents:
+    folder: Documents
+    extensions:
+      - .pdf
+      - .doc
+      - .docx
+      - .xls
+      - .xlsx
+      - .ppt
+      - .pptx
+      - .txt
+      - .rtf
+      - .odt
+      - .ods
+      - .odp
+      - .pages
+      - .numbers
+      - .key
+      - .csv
+      - .md
+      - .tex
+
+  videos:
+    folder: Videos
+    extensions:
+      - .mp4
+      - .avi
+      - .mov
+      - .wmv
+      - .flv
+      - .webm
+      - .mkv
+      - .m4v
+      - .3gp
+      - .ogv
+      - .mpg
+      - .mpeg
+
+  archives:
+    folder: Archives
+    extensions:
+      - .zip
+      - .rar
+      - .7z
+      - .tar
+      - .gz
+      - .bz2
+      - .xz
+      - .iso
+      - .dmg
+      - .pkg
+      - .deb
+      - .rpm
+
+# Duplicate detection settings
+duplicate_detection:
+  enabled: true
+  method: hash  # Options: hash, name, both
+  hash_algorithm: sha256  # Options: md5, sha1, sha256
+  action: skip  # Options: skip, rename, move_to_duplicates
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/file_organizer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# File operation settings
+operations:
+  create_directories: true
+  preserve_timestamps: true
+  dry_run: false  # Set to true to preview without moving files

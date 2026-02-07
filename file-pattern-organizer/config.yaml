@@ -1,0 +1,102 @@
+# File Pattern Organizer Configuration
+
+# Source directory to organize (relative to project root or absolute)
+source_dir: downloads
+
+# Base output directory (relative to project root or absolute)
+output_base_dir: organized
+
+# Pattern mappings: regex pattern -> destination folder
+# Patterns are matched in order, first match wins
+patterns:
+  # Date patterns
+  - pattern: '^\d{4}-\d{2}-\d{2}'  # YYYY-MM-DD format
+    folder: 'by_date'
+    description: 'Files starting with date (YYYY-MM-DD)'
+  
+  # Invoice patterns
+  - pattern: '(?i)invoice'
+    folder: 'invoices'
+    description: 'Files containing "invoice"'
+  
+  # Receipt patterns
+  - pattern: '(?i)receipt'
+    folder: 'receipts'
+    description: 'Files containing "receipt"'
+  
+  # Report patterns
+  - pattern: '(?i)report'
+    folder: 'reports'
+    description: 'Files containing "report"'
+  
+  # Statement patterns
+  - pattern: '(?i)statement'
+    folder: 'statements'
+    description: 'Files containing "statement"'
+  
+  # Contract patterns
+  - pattern: '(?i)contract'
+    folder: 'contracts'
+    description: 'Files containing "contract"'
+  
+  # Photo patterns
+  - pattern: '(?i)(photo|image|img|pic|picture)'
+    folder: 'photos'
+    description: 'Files containing photo/image keywords'
+  
+  # Document patterns
+  - pattern: '(?i)(doc|document)'
+    folder: 'documents'
+    description: 'Files containing doc/document keywords'
+  
+  # Backup patterns
+  - pattern: '(?i)(backup|bak|old)'
+    folder: 'backups'
+    description: 'Files containing backup keywords'
+  
+  # Project patterns
+  - pattern: '(?i)project'
+    folder: 'projects'
+    description: 'Files containing "project"'
+  
+  # Meeting patterns
+  - pattern: '(?i)(meeting|minutes)'
+    folder: 'meetings'
+    description: 'Files containing meeting keywords'
+
+# Default folder for files that don't match any pattern
+default_folder: 'misc'
+
+# File organization options
+options:
+  # Create subfolders based on matched groups in pattern
+  use_capture_groups: false
+  
+  # Preserve directory structure from source
+  preserve_structure: false
+  
+  # Move files (true) or copy files (false)
+  move_files: true
+  
+  # Create date-based subfolders (YYYY-MM format)
+  create_date_subfolders: false
+  
+  # Dry run mode (don't actually move files, just show what would happen)
+  dry_run: false
+
+# File handling options
+file_handling:
+  # What to do if destination file already exists
+  # Options: skip, overwrite, rename
+  on_conflict: rename
+  
+  # Maximum filename length (0 = no limit)
+  max_filename_length: 255
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/file_organizer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

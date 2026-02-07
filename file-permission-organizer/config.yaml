@@ -1,0 +1,101 @@
+# File Permission Organizer Configuration
+
+# Source directory to organize (relative to project root or absolute)
+source_dir: downloads
+
+# Base output directory (relative to project root or absolute)
+output_base_dir: organized
+
+# Permission-based folder mappings
+permission_folders:
+  # Executable files
+  executable:
+    folder: "executables"
+    description: "Files with execute permission"
+    check_owner: true  # Check owner execute permission
+    check_group: false  # Check group execute permission
+    check_other: false  # Check other execute permission
+  
+  # Read-only files
+  read_only:
+    folder: "read_only"
+    description: "Files that are read-only (no write permission)"
+    check_owner: true
+    check_group: true
+    check_other: true
+  
+  # Write-only files (uncommon but possible)
+  write_only:
+    folder: "write_only"
+    description: "Files with write but no read permission"
+    check_owner: true
+    check_group: true
+    check_other: true
+
+# Permission pattern mappings (octal permissions)
+# Patterns are matched in order, first match wins
+permission_patterns:
+  - pattern: "755"  # rwxr-xr-x
+    folder: "permissions_755"
+    description: "Owner: rwx, Group: r-x, Other: r-x"
+  
+  - pattern: "644"  # rw-r--r--
+    folder: "permissions_644"
+    description: "Owner: rw-, Group: r--, Other: r--"
+  
+  - pattern: "777"  # rwxrwxrwx
+    folder: "permissions_777"
+    description: "Owner: rwx, Group: rwx, Other: rwx"
+  
+  - pattern: "600"  # rw-------
+    folder: "permissions_600"
+    description: "Owner: rw-, Group: ---, Other: ---"
+  
+  - pattern: "700"  # rwx------
+    folder: "permissions_700"
+    description: "Owner: rwx, Group: ---, Other: ---"
+
+# Default folder for files that don't match any pattern
+default_folder: "other_permissions"
+
+# File organization options
+options:
+  # Move files (true) or copy files (false)
+  move_files: true
+  
+  # Preserve directory structure from source
+  preserve_structure: false
+  
+  # Create subfolders based on permission octal
+  create_permission_subfolders: false
+  
+  # Dry run mode (don't actually move files, just show what would happen)
+  dry_run: false
+
+# Exclude patterns (regex)
+exclude_patterns:
+  - '^\\.'  # Hidden files
+  - '\\.tmp$'  # Temporary files
+
+# Exclude directories (regex)
+exclude_directories:
+  - '^\\.git$'
+  - '^\\.venv$'
+  - '^__pycache__$'
+
+# File handling options
+file_handling:
+  # What to do if destination file already exists
+  # Options: skip, overwrite, rename
+  on_conflict: rename
+  
+  # Maximum filename length (0 = no limit)
+  max_filename_length: 255
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/file_permission_organizer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
