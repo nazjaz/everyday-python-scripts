@@ -1,0 +1,52 @@
+# Weather Scraper Configuration
+
+# Location settings
+location:
+  default_city: "New York"  # Default city to display
+  default_country: "US"  # Default country code
+  use_location_detection: false  # Attempt to detect location (requires geolocation)
+
+# Weather source
+weather_source:
+  provider: "wttr"  # Options: wttr (wttr.in service)
+  base_url: "https://wttr.in"
+  format: "j1"  # JSON format for wttr.in
+  timeout: 10  # Request timeout in seconds
+  user_agent: "Weather-Scraper/1.0"  # User agent for requests
+
+# Update settings
+updates:
+  auto_refresh: true  # Automatically refresh weather data
+  refresh_interval: 300  # Refresh interval in seconds (5 minutes)
+  refresh_on_start: true  # Refresh immediately on startup
+
+# Display settings
+display:
+  show_current: true  # Show current conditions
+  show_forecast: true  # Show forecast
+  forecast_days: 3  # Number of forecast days to display
+  temperature_unit: "C"  # Options: C (Celsius), F (Fahrenheit)
+  show_humidity: true
+  show_wind: true
+  show_pressure: true
+  show_visibility: true
+
+# GUI settings
+gui:
+  window_title: "Weather Scraper"
+  window_width: 600
+  window_height: 700
+  theme:
+    background_color: "#F0F0F0"
+    text_color: "#333333"
+    header_color: "#2C3E50"
+    button_color: "#3498DB"
+    error_color: "#E74C3C"
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/weather_scraper.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

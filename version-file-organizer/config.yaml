@@ -1,0 +1,59 @@
+# Version File Organizer Configuration
+
+# Organization settings
+organization:
+  # Base folder where organized files will be placed
+  base_folder: "organized"
+
+  # If true, group by exact version instead of compatibility group
+  group_by_exact_version: false
+
+# Version detection settings
+version:
+  # Patterns to extract version from filename (regex with capture group)
+  filename_patterns:
+    - "v(\\d+\\.\\d+\\.\\d+)"  # v1.2.3
+    - "v(\\d+\\.\\d+)"  # v1.2
+    - "v(\\d+)"  # v1
+    - "[-_](\\d+\\.\\d+\\.\\d+)"  # -1.2.3 or _1.2.3
+    - "[-_](\\d+\\.\\d+)"  # -1.2 or _1.2
+    - "[-_](\\d+)"  # -1 or _1
+
+  # Enable metadata extraction (placeholder for future implementation)
+  use_metadata: false
+
+  # Compatibility grouping settings
+  compatibility:
+    # Mode: "exact", "major", "minor", or "patch"
+    # - exact: Only exact version matches
+    # - major: Group by major version (1.x.x)
+    # - minor: Group by major.minor (1.2.x)
+    # - patch: Group by major.minor.patch (1.2.3)
+    mode: "major"
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+    - "organized"
+
+# Reporting configuration
+report:
+  # Output file for organization report
+  output_file: "organization_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

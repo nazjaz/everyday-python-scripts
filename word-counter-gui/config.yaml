@@ -1,0 +1,11 @@
+# Configuration file for Word Counter GUI
+# All paths are relative to this config file unless absolute paths are provided
+
+# Average reading speed in words per minute
+# Used for reading time estimates
+average_reading_speed: 200
+average_reading_speed_slow: 150
+average_reading_speed_fast: 250
+
+# Number of top words to display in frequency analysis
+top_words_count: 10
