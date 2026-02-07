@@ -1,0 +1,31 @@
+# PDF Text Extractor Configuration
+
+# Source directory containing PDF files
+source_directory: ~/Documents/PDFs
+
+# Destination directory for extracted text files
+destination_directory: ~/Documents/ExtractedText
+
+# Password for encrypted PDFs (leave empty if not needed)
+pdf_password: ""
+
+# Skip encrypted PDFs if password is not provided or incorrect
+skip_encrypted: true
+
+# Output text file encoding
+output_encoding: utf-8
+
+# Operations
+operations:
+  create_destination: true  # Create destination directory if it doesn't exist
+  recursive: true  # Scan subdirectories recursively
+  preserve_structure: true  # Preserve directory structure in destination
+  dry_run: false  # Set to true to preview without creating text files
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/pdf_text_extractor.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

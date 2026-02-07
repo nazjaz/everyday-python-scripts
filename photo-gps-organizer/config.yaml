@@ -1,0 +1,64 @@
+# Photo GPS Organizer Configuration
+
+# Source directory containing photos
+source_directory: ~/Pictures
+
+# Destination directory for organized photos
+destination_directory: organized_photos
+
+# Image file extensions to process
+image_extensions:
+  - .jpg
+  - .jpeg
+  - .png
+  - .tiff
+  - .tif
+  - .heic
+  - .heif
+
+# Operation mode: "move" or "copy"
+operation: move  # Use "copy" to keep originals
+
+# Duplicate handling: "skip", "rename", or "overwrite"
+duplicate_handling: skip
+
+# Reverse geocoding (convert coordinates to location names)
+geocoding:
+  enabled: false  # Set to true to use location names (requires geopy)
+  # Note: Requires internet connection and geopy library
+
+# Folder naming options
+folder_naming:
+  # Coordinate format: "decimal" or "dms" (degrees, minutes, seconds)
+  coordinate_format: decimal
+  # Precision for decimal coordinates (number of decimal places)
+  coordinate_precision: 4
+  # Include coordinates in folder name when location name is available
+  include_coordinates: false
+
+# Exclusions
+exclusions:
+  # Directories to exclude from scanning
+  directories:
+    - .git
+    - node_modules
+    - __pycache__
+    - .venv
+    - venv
+  # Patterns to exclude (matched in filename)
+  patterns:
+    - .DS_Store
+    - Thumbs.db
+    - .tmp
+
+# Operations
+operations:
+  recursive: true  # Scan subdirectories recursively
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/photo_gps_organizer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

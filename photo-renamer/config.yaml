@@ -1,0 +1,65 @@
+# Photo Renamer Configuration
+
+# Source directory containing photos to rename
+source_directory: ~/Pictures
+
+# Supported image formats
+supported_formats:
+  - .jpg
+  - .jpeg
+  - .tiff
+  - .tif
+  - .nef
+  - .cr2
+  - .arw
+  - .dng
+  - .orf
+  - .rw2
+  - .pef
+  - .sr2
+  - .raf
+  - .3fr
+  - .fff
+  - .x3f
+
+# Filename format settings
+naming:
+  format: "{date}_{time}_{original_name}"  # Format string
+  date_format: "%Y-%m-%d"  # Date format (YYYY-MM-DD)
+  time_format: "%H-%M-%S"  # Time format (HH-MM-SS)
+  sequential_format: "{date}_{time}_{counter:03d}_{original_name}"  # For duplicates
+  preserve_extension: true  # Keep original file extension
+
+# EXIF date field priority (checked in order)
+exif_date_fields:
+  - "DateTimeOriginal"  # Primary: Date/time when original image was taken
+  - "DateTimeDigitized"  # Fallback: Date/time when image was digitized
+  - "DateTime"  # Fallback: Date/time when image was last modified
+
+# Sequential numbering for same timestamp
+sequential_numbering:
+  enabled: true
+  start_number: 1  # Starting number for sequential files
+  padding: 3  # Number of digits (e.g., 001, 002, 003)
+
+# Fallback behavior when EXIF date not found
+fallback:
+  use_file_modification_date: true  # Use file modification date if no EXIF
+  use_file_creation_date: false  # Use file creation date if no EXIF
+  skip_if_no_date: false  # Skip file if no date available
+  prefix: "NO_DATE_"  # Prefix for files without date
+
+# File operation settings
+operations:
+  dry_run: false  # Preview changes without renaming
+  create_backup: false  # Create backup before renaming
+  backup_directory: backups  # Backup directory (relative to source)
+  preserve_timestamps: true  # Keep original file timestamps
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/photo_renamer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
