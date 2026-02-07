@@ -1,0 +1,84 @@
+# CSV Processor Configuration
+
+# Input and output file paths
+files:
+  input_file: ""  # Path to input CSV file (required)
+  output_file: ""  # Path to output CSV file (required)
+  report_file: logs/validation_report.txt  # Path to validation report
+
+# Duplicate removal settings
+duplicate_removal:
+  enabled: true
+  method: all_columns  # Options: all_columns, specific_columns, ignore_case
+  columns: []  # Specific columns to check (if method is specific_columns)
+  keep: first  # Options: first, last
+  case_sensitive: true  # Case sensitivity for comparison
+
+# Date standardization settings
+date_standardization:
+  enabled: true
+  target_format: "%Y-%m-%d"  # Target date format (YYYY-MM-DD)
+  date_columns: []  # Auto-detect if empty, or specify column names
+  input_formats:
+    - "%Y-%m-%d"  # YYYY-MM-DD
+    - "%m/%d/%Y"  # MM/DD/YYYY
+    - "%d/%m/%Y"  # DD/MM/YYYY
+    - "%Y/%m/%d"  # YYYY/MM/DD
+    - "%d-%m-%Y"  # DD-MM-YYYY
+    - "%m-%d-%Y"  # MM-DD-YYYY
+    - "%Y-%m-%d %H:%M:%S"  # With time
+    - "%m/%d/%Y %H:%M:%S"
+    - "%d/%m/%Y %H:%M:%S"
+    - "%Y-%m-%dT%H:%M:%S"  # ISO format
+    - "%B %d, %Y"  # January 1, 2024
+    - "%d %B %Y"  # 1 January 2024
+    - "%b %d, %Y"  # Jan 1, 2024
+  handle_invalid_dates: skip  # Options: skip, keep_original, set_null
+
+# Data cleaning settings
+data_cleaning:
+  enabled: true
+  trim_whitespace: true  # Remove leading/trailing whitespace
+  remove_empty_rows: false  # Remove rows where all values are empty
+  remove_empty_columns: false  # Remove columns with no data
+  normalize_whitespace: true  # Replace multiple spaces with single space
+  remove_special_characters: false  # Remove non-printable characters
+  lowercase_columns: false  # Convert column names to lowercase
+  strip_quotes: true  # Remove surrounding quotes from values
+
+# Data validation settings
+validation:
+  enabled: true
+  check_missing_values: true  # Report missing/null values
+  check_data_types: true  # Validate expected data types
+  check_value_ranges: false  # Check numeric value ranges
+  value_ranges: {}  # Column name: {min: value, max: value}
+  required_columns: []  # Columns that must not be empty
+  unique_columns: []  # Columns that should have unique values
+
+# Data type detection and conversion
+data_types:
+  auto_detect: true  # Automatically detect data types
+  conversions:
+    # Column name: target_type (int, float, str, bool, date)
+    # Example:
+    # age: int
+    # price: float
+    # is_active: bool
+
+# Report settings
+reporting:
+  include_summary: true  # Overall processing summary
+  include_duplicates: true  # List of duplicate rows
+  include_invalid_dates: true  # List of invalid date values
+  include_cleaning_changes: true  # Summary of cleaning operations
+  include_validation_errors: true  # Detailed validation errors
+  include_statistics: true  # Column statistics
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/csv_processor.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

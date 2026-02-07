@@ -1,0 +1,50 @@
+# Content Type Organizer Configuration
+
+# Organization settings
+organization:
+  # Base folder where organized files will be placed
+  base_folder: "organized"
+
+  # Folder name for files with unknown content type
+  unknown_folder: "Unknown"
+
+  # Custom MIME type to folder mappings
+  # Format: "mime/type": "FolderName"
+  mime_mappings:
+    # Example:
+    # "application/x-custom": "CustomFiles"
+
+# Content detection settings
+content_detection:
+  # Custom magic numbers for file type detection
+  # Format: "mime/type": [magic_bytes_as_string_or_bytes]
+  magic_numbers:
+    # Example:
+    # "application/x-custom": ["CUSTOM"]
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+    - "organized"
+
+# Reporting configuration
+report:
+  # Output file for organization report
+  output_file: "organization_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

@@ -1,0 +1,19 @@
+# Color Picker Configuration
+
+# Window settings
+window:
+  width: 600
+  height: 500
+
+# Palette settings
+palette:
+  # File path for saving/loading palettes
+  save_file: "palettes.json"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

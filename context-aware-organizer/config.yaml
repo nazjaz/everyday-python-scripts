@@ -1,0 +1,146 @@
+# Context-Aware File Organizer Configuration
+
+# Source directory to organize
+source_directory: "."
+
+# Organization configuration
+organization:
+  # Destination directory for organized files
+  destination_directory: "./organized"
+  
+  # Minimum confidence score to organize (0.0 to 1.0)
+  min_confidence: 0.3
+  
+  # Check for duplicate files
+  check_duplicates: true
+  
+  # Skip files if destination already exists
+  skip_duplicates: true
+  
+  # Directories to exclude from processing
+  exclude_directories:
+    - ".git"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "organized"
+    - "logs"
+  
+  # File patterns to exclude
+  exclude_files:
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".gitkeep"
+  
+  # File extensions to exclude
+  exclude_extensions:
+    - ".tmp"
+    - ".temp"
+    - ".swp"
+    - ".swo"
+
+# Context analysis configuration
+analysis:
+  # Weights for different context sources (must sum to ~1.0)
+  weights:
+    parent_directories: 0.4  # Weight for parent directory analysis
+    filename: 0.4           # Weight for filename analysis
+    nearby_files: 0.2       # Weight for nearby files analysis
+
+# Context keywords for categorization
+context_keywords:
+  work:
+    - "work"
+    - "job"
+    - "office"
+    - "business"
+    - "project"
+    - "client"
+    - "meeting"
+    - "report"
+  
+  personal:
+    - "personal"
+    - "home"
+    - "family"
+    - "private"
+    - "photos"
+    - "vacation"
+    - "hobby"
+  
+  financial:
+    - "finance"
+    - "bank"
+    - "tax"
+    - "invoice"
+    - "receipt"
+    - "budget"
+    - "expense"
+  
+  education:
+    - "school"
+    - "university"
+    - "course"
+    - "study"
+    - "homework"
+    - "assignment"
+    - "lecture"
+    - "notes"
+  
+  health:
+    - "health"
+    - "medical"
+    - "doctor"
+    - "prescription"
+    - "insurance"
+    - "fitness"
+  
+  travel:
+    - "travel"
+    - "trip"
+    - "flight"
+    - "hotel"
+    - "itinerary"
+    - "passport"
+  
+  project:
+    - "project"
+    - "code"
+    - "development"
+    - "repository"
+    - "git"
+    - "software"
+  
+  documents:
+    - "document"
+    - "contract"
+    - "agreement"
+    - "legal"
+    - "certificate"
+    - "license"
+  
+  media:
+    - "photo"
+    - "image"
+    - "video"
+    - "audio"
+    - "music"
+    - "movie"
+  
+  temporary:
+    - "temp"
+    - "tmp"
+    - "download"
+    - "cache"
+    - "scratch"
+    - "draft"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/organizer.log"
