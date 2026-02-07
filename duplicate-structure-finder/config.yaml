@@ -1,0 +1,64 @@
+# Duplicate Structure Finder Configuration
+
+# Search configuration
+search:
+  # Directory to search for duplicate structures
+  directory: "."
+  
+  # Include root directory in analysis
+  include_root: false
+
+# Comparison configuration
+comparison:
+  # Similarity threshold (0.0 to 1.0) for considering structures as duplicates
+  similarity_threshold: 0.8
+  
+  # Minimum file count to consider a directory
+  min_file_count: 1
+  
+  # Minimum subdirectory count to consider a directory
+  min_subdirectory_count: 0
+
+# Analysis configuration
+analysis:
+  # Maximum depth to analyze (0 = unlimited)
+  max_depth: 0
+  
+  # Include file sizes in comparison
+  include_sizes: true
+
+# Filtering configuration
+filtering:
+  # Directories to exclude from analysis
+  exclude_directories:
+    - ".git"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "logs"
+    - ".idea"
+    - ".vscode"
+  
+  # File patterns to exclude from analysis
+  exclude_files:
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".gitkeep"
+  
+  # File extensions to exclude from analysis
+  exclude_extensions:
+    - ".tmp"
+    - ".temp"
+    - ".swp"
+    - ".swo"
+    - ".log"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/finder.log"

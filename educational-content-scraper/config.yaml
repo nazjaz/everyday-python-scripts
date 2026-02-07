@@ -1,0 +1,105 @@
+# Educational Content Scraper Configuration
+
+# Source configuration
+sources:
+  # Project Gutenberg (public domain books)
+  project_gutenberg:
+    enabled: true
+    limit: 10  # Maximum number of items to scrape
+  
+  # OpenStax (open educational resources)
+  openstax:
+    enabled: true
+    limit: 10  # Maximum number of items to scrape
+  
+  # Custom sources
+  custom_sources:
+    - name: "example_source"
+      enabled: false
+      base_url: "https://example.com"
+      list_url: "https://example.com/books"
+      content_selector: "main"
+      title_selector: "h1"
+      limit: 5
+
+# Organization configuration
+organization:
+  # Library directory where content will be saved
+  library_directory: "./library"
+  
+  # Subject keywords for categorization
+  subject_keywords:
+    mathematics:
+      - "math"
+      - "mathematics"
+      - "algebra"
+      - "calculus"
+      - "geometry"
+      - "statistics"
+      - "arithmetic"
+    
+    science:
+      - "science"
+      - "physics"
+      - "chemistry"
+      - "biology"
+      - "astronomy"
+      - "geology"
+    
+    literature:
+      - "literature"
+      - "poetry"
+      - "novel"
+      - "fiction"
+      - "drama"
+      - "essay"
+    
+    history:
+      - "history"
+      - "historical"
+      - "ancient"
+      - "medieval"
+      - "civilization"
+    
+    philosophy:
+      - "philosophy"
+      - "philosophical"
+      - "ethics"
+      - "logic"
+      - "metaphysics"
+    
+    language:
+      - "language"
+      - "grammar"
+      - "linguistics"
+      - "vocabulary"
+    
+    computer_science:
+      - "computer"
+      - "programming"
+      - "software"
+      - "algorithm"
+      - "code"
+    
+    art:
+      - "art"
+      - "painting"
+      - "drawing"
+      - "sculpture"
+      - "design"
+
+# Scraping configuration
+scraping:
+  # Delay between requests in seconds (be respectful to servers)
+  request_delay_seconds: 2
+  
+  # Maximum content size to save (in characters)
+  max_content_size: 50000
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/scraper.log"

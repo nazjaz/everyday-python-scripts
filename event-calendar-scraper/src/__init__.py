@@ -1,0 +1,1 @@
+"""Event Calendar Scraper package."""
