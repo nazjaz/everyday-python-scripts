@@ -1,0 +1,4 @@
+pandas==2.1.4  # Excel file reading and data manipulation
+openpyxl==3.1.2  # Excel file engine for reading .xlsx files
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management

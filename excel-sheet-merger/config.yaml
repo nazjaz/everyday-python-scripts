@@ -1,0 +1,67 @@
+# Excel Sheet Merger Configuration
+
+# Input and output file paths
+files:
+  input_file: ""  # Path to input Excel file (required)
+  output_file: ""  # Path to output CSV file (required)
+
+# Sheet selection settings
+sheets:
+  names: null  # List of sheet names to process (null = all sheets)
+  # Example: ["Sheet1", "Sheet2", "Data"]
+
+# Excel reading settings
+reading:
+  header_row: 0  # Row number to use as column headers (0 = first row)
+  # Use null if no header row exists
+
+# Merging strategy settings
+merging:
+  strategy: concat  # Options: concat, union, intersection, join
+  add_sheet_column: true  # Add column indicating source sheet name
+  
+  # Join strategy configuration (only used when strategy is "join")
+  join:
+    keys: []  # Column names to join on
+    type: inner  # Options: inner, left, right, outer
+
+# Data cleaning settings
+cleaning:
+  enabled: true
+  remove_duplicates: false  # Remove duplicate rows after merging
+  remove_empty_rows: false  # Remove rows where all values are empty
+  remove_empty_columns: false  # Remove columns with no data
+
+# Data validation settings
+validation:
+  enabled: true
+  check_duplicates: false  # Check for duplicate rows in each sheet
+  required_columns: []  # Columns that must exist in all sheets
+  # Example: ["id", "name", "date"]
+  critical_columns: []  # Columns that should not have missing values
+  # Example: ["id", "email"]
+  check_data_types: false  # Validate expected data types
+  column_types: {}  # Column name: expected type (numeric, date, string)
+  # Example:
+  #   age: numeric
+  #   birth_date: date
+  #   name: string
+
+# CSV export settings
+csv_export:
+  include_index: false  # Include DataFrame index in CSV
+  encoding: utf-8  # File encoding
+  separator: ","  # Field separator
+  na_representation: ""  # Representation for missing values
+
+# Error handling settings
+error_handling:
+  skip_invalid_sheets: false  # Skip sheets that fail to load instead of raising error
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/excel_merger.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

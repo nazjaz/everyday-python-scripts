@@ -1,0 +1,107 @@
+# Executable File Auditor Configuration
+
+# Directories to scan (relative to project root or absolute)
+scan_directories:
+  - .
+
+# Report output file
+report_file: data/executable_audit.json
+
+# Report format
+# Options: json, txt, csv
+report_format: json
+
+# Executable file detection
+detection:
+  # Check file permissions (Unix/Linux/macOS)
+  check_permissions: true
+  
+  # Check file extensions
+  check_extensions: true
+  
+  # Check file magic bytes (binary detection)
+  check_magic_bytes: true
+  
+  # Check shebang lines (script detection)
+  check_shebang: true
+
+# Executable file categories
+categories:
+  scripts:
+    extensions: [sh, bash, zsh, fish, py, pl, rb, js, php, lua, tcl]
+    description: "Script files"
+    check_shebang: true
+  
+  binaries:
+    extensions: [exe, bin, app, dmg, pkg, deb, rpm, msi]
+    description: "Binary executables"
+    check_magic_bytes: true
+  
+  system_executables:
+    extensions: [sys, dll, so, dylib]
+    description: "System executables and libraries"
+  
+  archives_executables:
+    extensions: [jar, run, installer]
+    description: "Executable archives and installers"
+
+# Security audit options
+security_audit:
+  # Calculate file hashes for integrity checking
+  calculate_hashes: true
+  
+  # Hash algorithm: md5, sha1, sha256
+  hash_algorithm: sha256
+  
+  # Check file permissions
+  check_permissions: true
+  
+  # Flag suspicious permissions (e.g., world-writable executables)
+  flag_suspicious_permissions: true
+  
+  # Suspicious permission patterns
+  suspicious_permissions:
+    - "777"  # World-writable and executable
+    - "666"  # World-writable
+    - "000"  # No permissions
+  
+  # Check file ownership
+  check_ownership: true
+  
+  # Flag files owned by root/system
+  flag_root_owned: false
+  
+  # Check file size (flag unusually large files)
+  check_file_size: true
+  max_normal_size: 104857600  # 100MB
+  
+  # Check file modification time
+  check_modification_time: true
+  
+  # Flag recently modified executables
+  flag_recent_modifications: true
+  recent_days: 7  # Days considered "recent"
+
+# Exclude patterns (regex)
+exclude_patterns:
+  - '^\\.'  # Hidden files
+  - '\\.tmp$'  # Temporary files
+
+# Exclude directories (regex)
+exclude_directories:
+  - '^\\.git$'
+  - '^\\.venv$'
+  - '^__pycache__$'
+  - '^node_modules$'
+  - '^/usr/bin$'  # System directories
+  - '^/usr/local/bin$'
+  - '^/bin$'
+  - '^/sbin$'
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/executable_auditor.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

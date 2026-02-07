@@ -1,0 +1,34 @@
+# File Access Reporter Configuration
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+
+# Reporting configuration
+report:
+  # Output file for text report
+  output_file: "file_access_report.txt"
+
+  # Output file for JSON export
+  json_output_file: "file_access_report.json"
+
+  # Time bucket size for pattern analysis
+  # Options: "day", "week", "month", "year"
+  time_bucket: "day"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

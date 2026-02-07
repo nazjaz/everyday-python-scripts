@@ -1,0 +1,68 @@
+# File Activity Organizer Configuration
+
+# Source directory to scan for files
+source_directory: "."
+
+# Organization configuration
+organization:
+  # Directory for active files
+  active_directory: "./active"
+  
+  # Directory for archived files
+  archived_directory: "./archived"
+  
+  # Directory for dormant files
+  dormant_directory: "./dormant"
+  
+  # Preserve directory structure when organizing
+  preserve_structure: false
+  
+  # Skip files if destination already exists (true) or rename with timestamp (false)
+  skip_duplicates: true
+
+# Activity thresholds (in days)
+activity_thresholds:
+  # Files modified/accessed within this many days are considered active
+  active_days: 30
+  
+  # Files modified/accessed within this many days are considered archived
+  archived_days: 90
+  
+  # Files modified/accessed within this many days are considered dormant
+  dormant_days: 365
+
+# Filtering configuration
+filtering:
+  # Directories to exclude from scanning
+  exclude_directories:
+    - ".git"
+    - "active"
+    - "archived"
+    - "dormant"
+    - "node_modules"
+    - "__pycache__"
+    - ".pytest_cache"
+    - ".venv"
+    - "venv"
+    - "logs"
+  
+  # File patterns to exclude from processing
+  exclude_files:
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".gitkeep"
+  
+  # File extensions to exclude from processing
+  exclude_extensions:
+    - ".tmp"
+    - ".temp"
+    - ".swp"
+    - ".swo"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/organizer.log"
