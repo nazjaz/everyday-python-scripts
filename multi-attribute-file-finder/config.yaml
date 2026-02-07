@@ -1,0 +1,100 @@
+# Multi-Attribute File Finder Configuration
+
+# Search configuration
+search:
+  # Directory to search in
+  directory: "."
+  
+  # Directories to exclude from search (glob patterns)
+  exclude_directories:
+    - ".git"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "logs"
+
+# Attribute combinations to search for
+combinations:
+  # Large old files
+  - name: "large_old_files"
+    size:
+      categories: ["large", "very_large"]
+      min_bytes: 10485760  # 10 MB
+    age:
+      modified:
+        days_ago_min: 90  # At least 90 days old
+  
+  # Small new files
+  - name: "small_new_files"
+    size:
+      categories: ["tiny", "small"]
+      max_bytes: 1048576  # 1 MB
+    age:
+      modified:
+        days_ago_max: 7  # Modified within last 7 days
+  
+  # Executable documents
+  - name: "executable_documents"
+    type:
+      categories: ["document"]
+      executable: true
+  
+  # Large recent images
+  - name: "large_recent_images"
+    size:
+      min_bytes: 5242880  # 5 MB
+    age:
+      modified:
+        days_ago_max: 30  # Modified within last 30 days
+    type:
+      categories: ["image"]
+  
+  # Old code files
+  - name: "old_code_files"
+    type:
+      categories: ["code"]
+    age:
+      modified:
+        days_ago_min: 180  # At least 180 days old
+  
+  # Small old archives
+  - name: "small_old_archives"
+    size:
+      max_bytes: 1048576  # 1 MB
+    type:
+      categories: ["archive"]
+    age:
+      modified:
+        days_ago_min: 365  # At least 1 year old
+
+# Attribute definitions (for reference)
+attributes:
+  size_categories:
+    empty: 0
+    tiny: 1024  # 1 KB
+    small: 1048576  # 1 MB
+    medium: 10485760  # 10 MB
+    large: 104857600  # 100 MB
+    very_large: 1073741824  # 1 GB
+  
+  age_categories:
+    new: 7  # days
+    recent: 30  # days
+    moderate: 90  # days
+    old: 365  # days
+    very_old: 730  # days
+
+# Output configuration
+output:
+  # Output format: text, json, or csv
+  format: "text"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/finder.log"

@@ -1,0 +1,3 @@
+mutagen==1.47.0  # Audio metadata library for reading ID3 tags
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management

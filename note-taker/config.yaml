@@ -1,0 +1,18 @@
+# Note Taker Configuration
+
+# Data storage settings
+data:
+  directory: data  # Directory for storing notes data
+
+# Application settings
+app:
+  title: "Note Taker"  # Application window title
+  window_size: "1000x700"  # Initial window size (widthxheight)
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/note_taker.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

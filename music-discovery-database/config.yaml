@@ -1,0 +1,47 @@
+# Music Discovery Database Configuration
+
+# Database settings
+database:
+  # SQLite database file path
+  file: "music_database.db"
+
+# Scraper settings
+scraper:
+  # User agent for HTTP requests
+  user_agent: "Mozilla/5.0 (compatible; MusicDiscoveryBot/1.0)"
+
+  # Delay between requests (seconds)
+  delay: 2
+
+  # Request timeout (seconds)
+  timeout: 10
+
+# Source configuration
+sources:
+  musopen:
+    # Enable Musopen scraping
+    enabled: true
+
+    # Maximum pages to scrape
+    max_pages: 5
+
+  freesound:
+    # Enable Freesound scraping (requires API key)
+    enabled: false
+
+    # Search query
+    query: "music"
+
+    # Maximum results to scrape
+    max_results: 50
+
+    # API key (set via environment variable or config)
+    api_key: ""
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"
