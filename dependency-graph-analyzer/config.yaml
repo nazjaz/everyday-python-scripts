@@ -1,0 +1,17 @@
+# Configuration file for Dependency Graph Analyzer
+# All paths are relative to this config file unless absolute paths are provided
+
+# Base path for resolving relative imports
+# If not specified, uses the directory of each analyzed file
+base_path: null
+
+# Whether to recursively scan directories
+recursive: false
+
+# Whether to include external dependencies in the graph
+# External dependencies are modules not found in the project
+follow_external: false
+
+# Maximum depth for dependency traversal
+# Leave null or empty for unlimited depth
+max_depth: null

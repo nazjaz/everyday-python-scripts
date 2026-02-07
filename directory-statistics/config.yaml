@@ -1,0 +1,85 @@
+# Directory Statistics Configuration
+
+# Directories to analyze (relative to project root or absolute)
+analyze_directories:
+  - .
+
+# Report output file
+report_file: data/directory_stats.json
+
+# Report format
+# Options: json, txt, csv
+report_format: json
+
+# File type categories for grouping
+file_type_categories:
+  images:
+    extensions: [jpg, jpeg, png, gif, bmp, svg, webp, tiff, ico]
+    name: Images
+  videos:
+    extensions: [mp4, avi, mkv, mov, wmv, flv, webm, m4v, mp3, wav, flac, ogg]
+    name: Videos & Audio
+  documents:
+    extensions: [pdf, doc, docx, xls, xlsx, ppt, pptx, txt, rtf, odt, ods, odp]
+    name: Documents
+  archives:
+    extensions: [zip, rar, 7z, tar, gz, bz2, xz, tar.gz, tar.bz2]
+    name: Archives
+  code:
+    extensions: [py, js, html, css, java, cpp, c, h, php, rb, go, rs, ts, jsx, tsx]
+    name: Code Files
+  data:
+    extensions: [json, xml, csv, yaml, yml, sql, db, sqlite]
+    name: Data Files
+  executables:
+    extensions: [exe, dmg, pkg, deb, rpm, app, bin, sh, bat]
+    name: Executables
+  other:
+    extensions: []
+    name: Other Files
+
+# Exclude patterns (regex)
+exclude_patterns:
+  - '^\\.'  # Hidden files
+  - '\\.tmp$'  # Temporary files
+  - '\\.log$'  # Log files
+
+# Exclude directories (regex)
+exclude_directories:
+  - '^\\.git$'
+  - '^\\.venv$'
+  - '^__pycache__$'
+  - '^node_modules$'
+  - '^\\.idea$'
+  - '^\\.vscode$'
+
+# Statistics options
+options:
+  # Include hidden files
+  include_hidden: false
+  
+  # Include zero-byte files
+  include_empty: true
+  
+  # Minimum file size to include (bytes, 0 = include all)
+  min_file_size: 0
+  
+  # Maximum file size to include (bytes, 0 = no limit)
+  max_file_size: 0
+  
+  # Show top N largest files
+  top_largest_count: 10
+  
+  # Show top N oldest files
+  top_oldest_count: 10
+  
+  # Show top N newest files
+  top_newest_count: 10
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/directory_statistics.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

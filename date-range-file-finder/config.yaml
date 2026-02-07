@@ -1,0 +1,15 @@
+# Configuration file for Date Range File Finder
+# All paths are relative to this config file unless absolute paths are provided
+
+# Directory path to search in
+# Default: current directory
+search_path: "."
+
+# Whether to search subdirectories recursively
+# Default: true
+recursive: true
+
+# Optional file pattern to filter files (glob pattern)
+# Examples: "*.txt", "*.py", "*.log"
+# Leave empty or null to search all files
+file_pattern: null

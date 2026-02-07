@@ -1,0 +1,4 @@
+psutil==5.9.6  # System and process utilities for disk partition information
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management
+win10toast==0.9  # Windows 10 toast notifications (optional, Windows only)
