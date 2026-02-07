@@ -1,0 +1,62 @@
+# File Summary Reporter Configuration
+
+# Source directory to analyze
+source_directory: "."
+
+# Filtering configuration
+filtering:
+  # Directories to exclude from analysis
+  exclude_directories:
+    - ".git"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "logs"
+    - ".idea"
+    - ".vscode"
+  
+  # File patterns to exclude from analysis
+  exclude_files:
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".gitkeep"
+  
+  # File extensions to exclude from analysis
+  exclude_extensions:
+    - ".tmp"
+    - ".temp"
+    - ".swp"
+    - ".swo"
+    - ".log"
+
+# Analysis configuration
+analysis:
+  # Maximum number of top files to include in reports
+  top_files_limit: 20
+  
+  # Threshold for considering files as "many" of same type
+  many_files_threshold: 10
+  
+  # Age thresholds for categorization (in days)
+  age_thresholds:
+    recent: 7
+    active: 30
+    moderate: 90
+    old: 365
+  
+  # Size thresholds for categorization (in bytes)
+  size_thresholds:
+    tiny: 1024  # 1 KB
+    small: 1048576  # 1 MB
+    medium: 10485760  # 10 MB
+    large: 104857600  # 100 MB
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/reporter.log"

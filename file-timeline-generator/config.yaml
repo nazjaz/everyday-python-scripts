@@ -1,0 +1,45 @@
+# File Timeline Generator Configuration
+
+# Search configuration
+search:
+  # Directory to analyze for timeline generation
+  directory: "."
+
+# Output configuration
+output:
+  # Output format: text, json, or csv
+  format: "text"
+
+# Filtering configuration
+filtering:
+  # Directories to exclude from timeline
+  exclude_directories:
+    - ".git"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "logs"
+  
+  # File patterns to exclude from timeline
+  exclude_files:
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".gitkeep"
+  
+  # File extensions to exclude from timeline
+  exclude_extensions:
+    - ".tmp"
+    - ".temp"
+    - ".swp"
+    - ".swo"
+    - ".log"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/timeline.log"
