@@ -1,0 +1,44 @@
+# File Health Checker Configuration
+
+# Health check settings
+health_check:
+  # Calculate file checksums for integrity verification
+  calculate_checksum: false
+
+  # Checksum algorithm: "md5", "sha1", or "sha256"
+  checksum_algorithm: "md5"
+
+  # Minimum file size in bytes (files smaller are considered suspicious)
+  min_file_size: 1
+
+  # Custom magic numbers for file type detection
+  # Format: extension: [magic_bytes_as_string_or_bytes]
+  magic_numbers:
+    # Example:
+    # ".custom": ["CUSTOM"]
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+
+# Reporting configuration
+report:
+  # Output file for health check report
+  output_file: "health_check_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

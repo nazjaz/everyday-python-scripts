@@ -1,0 +1,50 @@
+# File Metadata Exporter Configuration
+
+# Source directory configuration
+source:
+  directory: "."  # Directory to scan
+  recursive: true  # Scan subdirectories recursively
+
+# Metadata extraction settings
+metadata:
+  include_owner: false  # Include file owner (Unix/Linux/macOS)
+  include_group: false  # Include file group (Unix/Linux/macOS)
+  include_inode: false  # Include inode number
+  include_device: false  # Include device number
+
+# Checksum calculation settings
+checksum:
+  enabled: true  # Calculate file checksums
+  algorithms: ["md5", "sha1"]  # Checksum algorithms to use
+  chunk_size: 8192  # Chunk size for reading files (bytes)
+
+# File inclusion
+include:
+  extensions: []  # Empty list = all extensions
+  include_no_extension: true  # Include files without extensions
+
+# Files and directories to skip
+skip:
+  patterns:
+    - ".git"
+    - "__pycache__"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+  directories:
+    - ".git"
+    - "node_modules"
+  excluded_paths: []
+
+# CSV export settings
+export:
+  output_file: "data/file_metadata.csv"  # Output CSV file path
+  encoding: "utf-8"  # CSV file encoding
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file: "logs/metadata_exporter.log"
+  max_bytes: 10485760
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

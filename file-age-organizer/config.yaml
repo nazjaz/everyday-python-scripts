@@ -1,0 +1,47 @@
+# File Age Organizer Configuration
+
+# Age threshold settings
+# Files are categorized based on their age (time since last modification)
+# Categories are checked in order, first matching threshold wins
+age_thresholds:
+  New:
+    value: 1
+    unit: days  # Options: days, hours, minutes
+  Recent:
+    value: 7
+    unit: days
+  Old:
+    value: 30
+    unit: days
+  Very-Old:
+    value: 365
+    unit: days
+
+# File organization settings
+organizer:
+  source_directory: "."  # Directory containing files to organize
+  destination_directory: "organized"  # Directory for organized files
+  recursive: true  # Process subdirectories recursively
+  handle_duplicate_names: rename  # Options: skip, rename, overwrite
+  
+  # Exclusion settings
+  exclude:
+    patterns: []  # Regex patterns for files/paths to exclude
+      # Example: ["\\.git", "\\.DS_Store"]
+    directories: []  # Directory names to exclude
+      # Example: [".git", "node_modules", "__pycache__", ".venv"]
+    extensions: []  # File extensions to exclude
+      # Example: [".tmp", ".bak"]
+
+# Report settings
+report:
+  output_directory: "output"  # Directory for generated reports
+  output_file: "file_age_report.txt"  # Default report filename
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/file_age_organizer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

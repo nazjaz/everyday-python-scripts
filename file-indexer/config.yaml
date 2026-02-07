@@ -1,0 +1,96 @@
+# File Indexer Configuration
+
+# Directories to index (relative to project root or absolute)
+index_directories:
+  - .
+
+# Index output file
+index_file: data/file_index.json
+
+# Indexing options
+options:
+  # Include hidden files
+  include_hidden: false
+  
+  # Include zero-byte files
+  include_empty: true
+  
+  # Minimum file size to include (bytes, 0 = include all)
+  min_file_size: 0
+  
+  # Maximum file size to include (bytes, 0 = no limit)
+  max_file_size: 0
+  
+  # Calculate file hashes for integrity
+  calculate_hashes: false
+  
+  # Hash algorithm: md5, sha1, sha256
+  hash_algorithm: sha256
+  
+  # Include file permissions
+  include_permissions: true
+  
+  # Include file owner information
+  include_owner: false
+  
+  # Recursive indexing
+  recursive: true
+
+# Metadata to include
+metadata:
+  # File size
+  size: true
+  
+  # Modification date
+  modification_date: true
+  
+  # Creation date
+  creation_date: true
+  
+  # File type (extension)
+  file_type: true
+  
+  # MIME type (if available)
+  mime_type: false
+  
+  # Full path
+  full_path: true
+  
+  # Relative path
+  relative_path: false
+
+# Exclude patterns (regex)
+exclude_patterns:
+  - '^\\.'  # Hidden files
+  - '\\.tmp$'  # Temporary files
+  - '\\.log$'  # Log files
+  - '\\.bak$'  # Backup files
+
+# Exclude directories (regex)
+exclude_directories:
+  - '^\\.git$'
+  - '^\\.venv$'
+  - '^__pycache__$'
+  - '^node_modules$'
+  - '^\\.idea$'
+  - '^\\.vscode$'
+
+# Search options
+search:
+  # Enable search functionality
+  enabled: true
+  
+  # Search fields
+  search_fields:
+    - name
+    - path
+    - file_type
+    - full_path
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/file_indexer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

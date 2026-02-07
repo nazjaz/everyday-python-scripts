@@ -1,0 +1,117 @@
+# File Category Organizer Configuration
+
+# File organization settings
+organizer:
+  source_directory: "."  # Directory containing files to organize
+  destination_directory: "organized"  # Directory for organized files
+  recursive: true  # Process subdirectories recursively
+  overwrite_existing: false  # Overwrite existing files in destination
+  check_duplicates: true  # Check for duplicate files using hash
+  handle_duplicates: skip  # Options: skip, rename, overwrite
+  handle_duplicate_names: rename  # Options: skip, rename, overwrite
+  
+  # Exclusion settings
+  exclude:
+    patterns: []  # Regex patterns for files/paths to exclude
+      # Example: ["\\.git", "\\.DS_Store"]
+    extensions: []  # File extensions to exclude
+      # Example: [".tmp", ".bak"]
+
+# Category mappings (extension -> category)
+categories:
+  Media:
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .bmp
+    - .svg
+    - .webp
+    - .mp4
+    - .avi
+    - .mov
+    - .mkv
+    - .mp3
+    - .wav
+    - .flac
+    - .ogg
+    - .aac
+  
+  Documents:
+    - .pdf
+    - .doc
+    - .docx
+    - .xls
+    - .xlsx
+    - .ppt
+    - .pptx
+    - .txt
+    - .rtf
+    - .odt
+    - .ods
+    - .odp
+  
+  Archives:
+    - .zip
+    - .rar
+    - .7z
+    - .tar
+    - .gz
+    - .bz2
+    - .xz
+    - .tar.gz
+    - .tar.bz2
+  
+  Code:
+    - .py
+    - .js
+    - .html
+    - .css
+    - .java
+    - .cpp
+    - .c
+    - .h
+    - .hpp
+    - .cs
+    - .php
+    - .rb
+    - .go
+    - .rs
+    - .swift
+    - .kt
+    - .ts
+    - .jsx
+    - .tsx
+    - .json
+    - .xml
+    - .yaml
+    - .yml
+    - .sh
+    - .bat
+    - .ps1
+  
+  Data:
+    - .csv
+    - .tsv
+    - .db
+    - .sqlite
+    - .sql
+    - .xlsx
+    - .xls
+    - .json
+    - .xml
+
+# Custom mappings (override default categories)
+# Format: extension: category
+custom_mappings: {}
+  # Example:
+  # .custom: Documents
+  # .special: Media
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/file_organizer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
