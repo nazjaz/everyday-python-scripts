@@ -1,0 +1,1 @@
+"""Text Pattern Search package."""

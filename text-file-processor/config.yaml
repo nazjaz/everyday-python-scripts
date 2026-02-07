@@ -1,0 +1,60 @@
+# Text File Processor Configuration
+
+# Input configuration
+input:
+  directory: "."  # Directory to process
+  recursive: true  # Process subdirectories recursively
+
+# Output configuration
+output:
+  in_place: true  # Overwrite original files (false = save to output directory)
+  directory: "processed"  # Output directory (if in_place is false)
+
+# Processing options
+processing:
+  # Encoding detection order
+  encoding_detection_order:
+    - "utf-8"
+    - "latin-1"
+    - "cp1252"
+    - "iso-8859-1"
+  
+  # Line ending normalization
+  line_ending: "unix"  # Options: "unix" (\n), "windows" (\r\n), "mac" (\r)
+  
+  # Whitespace removal options
+  remove_trailing_whitespace: true  # Remove trailing spaces from lines
+  remove_leading_whitespace: false  # Remove leading spaces from lines
+  normalize_spaces: true  # Normalize multiple spaces to single space
+  remove_empty_lines: false  # Remove empty lines
+  remove_trailing_newlines: false  # Remove trailing newlines at end of file
+
+# File inclusion
+include:
+  extensions: []  # Empty list = process common text files (.txt, .md, .py, etc.)
+  # Example: [".txt", ".md", ".py"] to process only these extensions
+
+# Files and directories to skip
+skip:
+  patterns:
+    - ".git"
+    - "__pycache__"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+  directories:
+    - ".git"
+    - "node_modules"
+
+# Backup configuration
+backup:
+  enabled: true  # Create backup before processing
+  directory: "backups"  # Backup directory
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file: "logs/text_processor.log"
+  max_bytes: 10485760
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

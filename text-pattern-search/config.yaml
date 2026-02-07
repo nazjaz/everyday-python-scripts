@@ -1,0 +1,31 @@
+# Configuration file for Text Pattern Search
+# All paths are relative to this config file unless absolute paths are provided
+
+# Whether to treat pattern as regular expression
+# Default: false (literal text search)
+use_regex: false
+
+# Whether search is case-sensitive
+# Default: true
+case_sensitive: true
+
+# Number of context lines to show before and after matches
+# Default: 2
+context_lines: 2
+
+# File extensions or patterns to include
+# If not specified, searches all text files
+# Examples: [".py", ".txt", ".js"]
+file_patterns: null
+
+# File patterns to exclude from search
+# Files matching these patterns will be skipped
+exclude_patterns:
+  - "__pycache__"
+  - ".git"
+  - "node_modules"
+  - ".venv"
+
+# Whether to recursively search subdirectories
+# Default: false
+recursive: false

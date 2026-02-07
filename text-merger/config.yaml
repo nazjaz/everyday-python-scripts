@@ -1,0 +1,57 @@
+# Text Merger Configuration
+
+# Source directory containing text files to merge
+source_directory: ~/Documents/TextFiles
+
+# Output file path (relative to project root or absolute)
+output_file: merged_output.txt
+
+# Text file extensions to include
+text_extensions:
+  - .txt
+  - .md
+  - .log
+  - .text
+
+# Sort order for files
+sort_order: alphabetical  # Options: alphabetical, date_modified, date_created, size
+
+# Header format (use {filename} as placeholder)
+header_format: "=== {filename} ==="
+
+# Separator between files (use \n for newlines)
+separator: "\n================================================================================\n"
+
+# Include header text at the beginning of merged file
+include_header: true
+
+# Header text to add at the beginning (if include_header is true)
+header_text: "Merged Text Files\nGenerated: {date}"
+
+# Exclusions
+exclusions:
+  # Patterns to exclude (matched in filename)
+  patterns:
+    - .tmp
+    - .bak
+  # File extensions to exclude
+  extensions:
+    - .tmp
+    - .bak
+
+# Encoding settings
+input_encoding: utf-8   # Encoding for reading input files
+output_encoding: utf-8  # Encoding for writing output file
+
+# Operations
+operations:
+  recursive: true  # Scan subdirectories recursively
+  dry_run: false   # Set to true to preview without creating merged file
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/text_merger.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
