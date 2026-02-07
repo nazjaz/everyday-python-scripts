@@ -1,0 +1,67 @@
+# Purpose-Based File Organizer Configuration
+
+# Organization settings
+organization:
+  # Base folder where organized files will be placed
+  base_folder: "organized"
+
+  # Folder name for files with unknown purpose
+  unknown_folder: "Unknown"
+
+  # Include secondary purposes as subfolders
+  include_secondary_purposes: false
+
+  # Skip duplicate files during organization
+  skip_duplicates: false
+
+# Purpose detection settings
+purpose_detection:
+  # Minimum score threshold for purpose detection
+  min_score: 1
+
+  # Custom purpose patterns (keywords and weights)
+  # Format: "PurposeName": [{"keywords": ["keyword1", "keyword2"], "weight": 3}]
+  patterns:
+    # Example:
+    # "CustomPurpose": [
+    #   {"keywords": ["custom", "specific"], "weight": 3}
+    # ]
+
+  # Location-based context mappings
+  # Format: "FolderName": ["Purpose1", "Purpose2"]
+  location_contexts:
+    # Example:
+    # "CustomFolder": ["CustomPurpose"]
+
+  # Content-based keyword mappings
+  # Format: "PurposeName": ["keyword1", "keyword2"]
+  content_keywords:
+    # Example:
+    # "CustomPurpose": ["custom phrase", "specific term"]
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+    - "organized"
+
+# Reporting configuration
+report:
+  # Output file for organization report
+  output_file: "organization_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

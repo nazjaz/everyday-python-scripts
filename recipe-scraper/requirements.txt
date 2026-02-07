@@ -1,0 +1,5 @@
+requests==2.31.0  # HTTP library for web scraping
+beautifulsoup4==4.12.2  # HTML parsing library
+lxml==4.9.3  # XML/HTML parser for BeautifulSoup
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management

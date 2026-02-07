@@ -1,0 +1,40 @@
+# QR Code Generator Configuration
+
+# Window settings
+window:
+  width: 600
+  height: 700
+
+# QR code settings
+qr_code:
+  # Box size (pixels per module)
+  box_size: 10
+
+  # Border thickness (modules)
+  border: 4
+
+  # Error correction level: L, M, Q, H
+  # L: ~7% error correction
+  # M: ~15% error correction (default)
+  # Q: ~25% error correction
+  # H: ~30% error correction
+  error_correction: "M"
+
+  # Fill color (foreground)
+  fill_color: "black"
+
+  # Background color
+  back_color: "white"
+
+# Save settings
+save:
+  # Default directory for saving QR codes
+  default_directory: "."
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

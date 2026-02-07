@@ -1,0 +1,4 @@
+qrcode[pil]==7.4.2  # QR code generation library with PIL support
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management
+pytest==7.4.3  # Testing framework

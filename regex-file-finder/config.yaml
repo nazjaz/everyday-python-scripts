@@ -1,0 +1,33 @@
+# Regex File Finder Configuration
+
+# Search settings
+search:
+  directory: "."  # Default directory to search
+  case_sensitive: false  # Case sensitivity for regex matching
+  match_full_path: false  # Match against full path, not just filename
+  recursive: true  # Search recursively in subdirectories
+  max_file_size: 10485760  # Maximum file size to search content (10MB)
+  encoding: utf-8  # Encoding for reading file content
+  
+  # Exclusion settings
+  exclude:
+    patterns: []  # Regex patterns for files/paths to exclude
+      # Example: ["\\.git", "\\.DS_Store"]
+    directories: []  # Directory names to exclude
+      # Example: [".git", "node_modules", "__pycache__"]
+    extensions: []  # File extensions to exclude from content search
+      # Example: [".exe", ".dll", ".so", ".bin"]
+
+# Operation settings
+operations:
+  output_directory: "output"  # Default output directory for copy/move
+  overwrite_existing: false  # Overwrite existing files in destination
+  preserve_structure: false  # Preserve directory structure when copying/moving
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/regex_finder.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
