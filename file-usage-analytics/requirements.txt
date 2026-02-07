@@ -1,0 +1,5 @@
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management
+matplotlib==3.8.2  # Visualization and chart generation
+numpy==1.26.2  # Numerical operations for data analysis
+pytest==7.4.3  # Testing framework

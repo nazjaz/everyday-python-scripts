@@ -1,0 +1,19 @@
+# Configuration file for File Usage Tracker
+# All paths are relative to this config file unless absolute paths are provided
+
+# Path to SQLite database file for tracking data
+database: "./file_usage.db"
+
+# Number of days to consider for frequency calculation
+# Files accessed/modified within this window are counted
+tracking_window_days: 30
+
+# Organization method
+# Options: frequency, access, modification
+# - frequency: Organize by overall usage frequency (access + modification)
+# - access: Organize by access frequency only
+# - modification: Organize by modification frequency only
+organize_by: "frequency"
+
+# Whether to recursively scan directories
+recursive: false

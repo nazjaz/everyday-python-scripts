@@ -1,0 +1,40 @@
+# Historical Events Database Configuration
+
+# Database configuration
+database:
+  # Path to SQLite database file
+  path: "./historical_events.db"
+
+# Source configuration
+sources:
+  # Wikipedia (public domain historical data)
+  wikipedia:
+    enabled: true
+    limit: 50  # Maximum number of events to scrape
+  
+  # Custom sources
+  custom_sources:
+    # - name: "example_source"
+    #   enabled: false
+    #   base_url: "https://example.com"
+    #   list_url: "https://example.com/events"
+    #   event_selector: "div"
+    #   date_selector: "span"
+    #   description_selector: "p"
+    #   limit: 50
+
+# Scraping configuration
+scraping:
+  # Delay between requests in seconds (be respectful to servers)
+  request_delay_seconds: 2
+  
+  # Maximum retry attempts for failed requests
+  max_retries: 3
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/historical.log"

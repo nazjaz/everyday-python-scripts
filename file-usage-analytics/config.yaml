@@ -1,0 +1,34 @@
+# File Usage Analytics Configuration
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+    - "analytics_charts"
+    - "logs"
+
+# Visualization configuration
+visualizations:
+  # Output directory for visualization charts
+  output_dir: "analytics_charts"
+
+# Reporting configuration
+report:
+  # Output file for analytics report
+  output_file: "analytics_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"
