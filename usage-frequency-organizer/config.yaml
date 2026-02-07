@@ -1,0 +1,82 @@
+# Usage Frequency Organizer Configuration
+
+# Source directory to organize
+source_directory: "."
+
+# Frequency thresholds (in days since last access)
+frequency_thresholds:
+  # Files accessed within this many days are considered frequent
+  frequent_days: 7
+  
+  # Files accessed within this many days are considered occasional
+  occasional_days: 30
+  
+  # Files accessed within this many days are considered rare
+  rare_days: 90
+  
+  # Files accessed beyond rare_days are considered archive
+
+# Organization configuration
+organization:
+  # Directory for frequently accessed files
+  frequent_directory: "./frequent"
+  
+  # Directory for occasionally used files
+  occasional_directory: "./occasional"
+  
+  # Directory for rarely accessed files
+  rare_directory: "./rare"
+  
+  # Directory for archived files (rarely accessed)
+  archive_directory: "./archive"
+  
+  # Preserve directory structure when organizing
+  preserve_structure: false
+  
+  # Check for duplicate files
+  check_duplicates: true
+  
+  # Skip files if destination already exists
+  skip_duplicates: true
+
+# Analysis configuration
+analysis:
+  # Use modification time if access time is unavailable
+  use_modification_time_fallback: true
+
+# Filtering configuration
+filtering:
+  # Directories to exclude from processing
+  exclude_directories:
+    - ".git"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "logs"
+    - "frequent"
+    - "occasional"
+    - "rare"
+    - "archive"
+  
+  # File patterns to exclude
+  exclude_files:
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".gitkeep"
+  
+  # File extensions to exclude
+  exclude_extensions:
+    - ".tmp"
+    - ".temp"
+    - ".swp"
+    - ".swo"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/organizer.log"

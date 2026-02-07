@@ -1,0 +1,35 @@
+# Unused File Identifier Configuration
+
+# Scanning configuration
+scan:
+  # Time threshold for considering a file unused
+  # Format: number followed by unit (d=days, w=weeks, m=months, y=years)
+  # Examples: "30d", "2w", "6m", "1y"
+  unused_threshold: "90d"
+
+  # Patterns to skip during scanning (substring matching)
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+
+# Reporting configuration
+report:
+  # Output file for text report
+  output_file: "cleanup_report.txt"
+
+  # Output file for JSON export
+  json_output_file: "cleanup_report.json"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"
