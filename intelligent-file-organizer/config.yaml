@@ -1,0 +1,199 @@
+# Intelligent File Organizer Configuration
+
+# Organization settings
+organization:
+  # Base folder where organized files will be placed
+  base_folder: "organized"
+
+# Analysis settings
+analysis:
+  # Extract tags from filename
+  use_filename: true
+
+  # Extract tags from directory context
+  use_directory: true
+
+  # Extract tags from file content
+  use_content: true
+
+  # Maximum content size to analyze (bytes)
+  max_content_size: 100000
+
+  # Text file extensions to analyze content
+  text_extensions:
+    - ".txt"
+    - ".md"
+    - ".py"
+    - ".js"
+    - ".html"
+    - ".css"
+    - ".json"
+    - ".xml"
+    - ".csv"
+
+# Category definitions
+categories:
+  documents:
+    folder: "Documents"
+    keywords:
+      - "document"
+      - "doc"
+      - "report"
+      - "paper"
+      - "article"
+      - "essay"
+      - "letter"
+      - "memo"
+    patterns:
+      - ".*\\.(doc|docx|pdf|rtf)$"
+    directory_keywords:
+      - "documents"
+      - "docs"
+      - "papers"
+    content_keywords:
+      - "report"
+      - "analysis"
+      - "summary"
+      - "conclusion"
+
+  images:
+    folder: "Images"
+    keywords:
+      - "image"
+      - "photo"
+      - "picture"
+      - "screenshot"
+      - "img"
+    patterns:
+      - ".*\\.(jpg|jpeg|png|gif|bmp|svg|webp)$"
+    directory_keywords:
+      - "images"
+      - "photos"
+      - "pictures"
+      - "screenshots"
+
+  videos:
+    folder: "Videos"
+    keywords:
+      - "video"
+      - "movie"
+      - "film"
+      - "clip"
+      - "recording"
+    patterns:
+      - ".*\\.(mp4|avi|mov|mkv|wmv|flv|webm)$"
+    directory_keywords:
+      - "videos"
+      - "movies"
+      - "films"
+
+  music:
+    folder: "Music"
+    keywords:
+      - "music"
+      - "song"
+      - "audio"
+      - "track"
+      - "album"
+    patterns:
+      - ".*\\.(mp3|wav|flac|aac|ogg|m4a)$"
+    directory_keywords:
+      - "music"
+      - "songs"
+      - "audio"
+
+  code:
+    folder: "Code"
+    keywords:
+      - "code"
+      - "script"
+      - "program"
+      - "source"
+      - "src"
+    patterns:
+      - ".*\\.(py|js|java|cpp|c|h|html|css|php|rb|go|rs)$"
+    directory_keywords:
+      - "code"
+      - "src"
+      - "scripts"
+      - "programs"
+    content_keywords:
+      - "function"
+      - "class"
+      - "import"
+      - "def"
+      - "var"
+
+  archives:
+    folder: "Archives"
+    keywords:
+      - "archive"
+      - "zip"
+      - "rar"
+      - "tar"
+      - "backup"
+    patterns:
+      - ".*\\.(zip|rar|7z|tar|gz|bz2|xz)$"
+    directory_keywords:
+      - "archives"
+      - "backups"
+      - "compressed"
+
+  spreadsheets:
+    folder: "Spreadsheets"
+    keywords:
+      - "spreadsheet"
+      - "excel"
+      - "sheet"
+      - "data"
+    patterns:
+      - ".*\\.(xls|xlsx|csv)$"
+    directory_keywords:
+      - "spreadsheets"
+      - "data"
+      - "excel"
+    content_keywords:
+      - "column"
+      - "row"
+      - "data"
+      - "table"
+
+  presentations:
+    folder: "Presentations"
+    keywords:
+      - "presentation"
+      - "slides"
+      - "ppt"
+      - "keynote"
+    patterns:
+      - ".*\\.(ppt|pptx|key)$"
+    directory_keywords:
+      - "presentations"
+      - "slides"
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+    - "organized"
+
+# Reporting configuration
+report:
+  # Output file for organization report
+  output_file: "organization_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

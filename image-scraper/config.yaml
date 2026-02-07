@@ -1,0 +1,30 @@
+# Configuration file for Image Scraper
+# All paths are relative to this config file unless absolute paths are provided
+
+# Output directory for downloaded images
+output_directory: "./downloads"
+
+# Organization method
+# Options: date, category
+# - date: Organize by download date (YYYY-MM-DD)
+# - category: Organize by image category (nature, portraits, animals, etc.)
+organize_by: "date"
+
+# Maximum number of images to download
+# Leave null or empty for unlimited
+max_images: null
+
+# Rate limiting: delay between requests in seconds
+# Be respectful to servers - recommended: 1.0 or higher
+rate_limit: 1.0
+
+# Custom user agent string
+# If not specified, uses default browser user agent
+user_agent: null
+
+# Request timeout in seconds
+timeout: 10
+
+# URLs to scrape (can also be provided via command line)
+urls:
+  - "https://example.com/gallery"

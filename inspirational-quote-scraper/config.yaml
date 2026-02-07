@@ -1,0 +1,57 @@
+# Inspirational Quote Scraper Configuration
+
+# Quote sources to scrape
+sources:
+  - name: "BrainyQuote - Inspirational"
+    url: "https://www.brainyquote.com/topics/inspirational-quotes"
+    category: "inspirational"
+    selectors:
+      quote: ".b-qt"
+      text: ".b-qt"
+      author: ".bq-aut"
+
+  - name: "Goodreads - Inspirational"
+    url: "https://www.goodreads.com/quotes/tag/inspirational"
+    category: "inspirational"
+    selectors:
+      quote: ".quoteText"
+      text: ".quoteText"
+      author: ".authorOrTitle"
+
+# Database configuration
+database:
+  file: "data/quotes.db"
+  create_tables: true
+
+# Scraping configuration
+scraping:
+  timeout: 30
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  delay_between_sources: 2
+  min_quote_length: 10
+  max_quote_length: 500
+
+# Display configuration
+display:
+  recent_days_avoid: 30  # Avoid showing quotes displayed in last N days
+
+# Desktop notifications
+notifications:
+  enabled: true
+  title: "Daily Inspirational Quote"
+  timeout: 10
+  max_length: 200
+  app_name: "Quote Scraper"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file: "logs/quote_scraper.log"
+  max_bytes: 10485760
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Data retention
+retention:
+  auto_cleanup: true
+  days_to_keep: 90
