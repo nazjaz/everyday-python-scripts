@@ -1,0 +1,84 @@
+# Document Organizer Configuration
+
+# Source directory containing documents to organize
+source_directory: ~/Documents/Unorganized
+
+# Destination base directory for organized documents
+destination_base: ~/Documents/Organized
+
+# Document categories and their folder mappings
+categories:
+  pdfs:
+    folder: PDFs
+    extensions:
+      - .pdf
+    mime_types:
+      - application/pdf
+
+  word_documents:
+    folder: Word-Documents
+    extensions:
+      - .doc
+      - .docx
+      - .rtf
+      - .odt
+    mime_types:
+      - application/msword
+      - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+      - application/rtf
+      - application/vnd.oasis.opendocument.text
+
+  spreadsheets:
+    folder: Spreadsheets
+    extensions:
+      - .xls
+      - .xlsx
+      - .ods
+      - .csv
+    mime_types:
+      - application/vnd.ms-excel
+      - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+      - application/vnd.oasis.opendocument.spreadsheet
+      - text/csv
+
+  presentations:
+    folder: Presentations
+    extensions:
+      - .ppt
+      - .pptx
+      - .odp
+    mime_types:
+      - application/vnd.ms-powerpoint
+      - application/vnd.openxmlformats-officedocument.presentationml.presentation
+      - application/vnd.oasis.opendocument.presentation
+
+# Duplicate handling options
+duplicate_handling: rename  # Options: skip, rename, overwrite
+
+# Exclusions
+exclusions:
+  # Patterns to exclude (matched in filename)
+  patterns:
+    - .tmp
+    - .bak
+    - ~
+  # File extensions to exclude
+  extensions:
+    - .tmp
+    - .bak
+
+# Operations
+operations:
+  create_directories: true  # Create destination directories if they don't exist
+  recursive: true  # Scan subdirectories recursively
+  method: move  # Options: move, copy
+  preserve_timestamps: true  # Preserve file modification times
+  dry_run: false  # Set to true to preview without making changes
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/document_organizer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

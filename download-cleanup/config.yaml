@@ -1,0 +1,39 @@
+# Configuration file for Download Cleanup Script
+# All paths are relative to this config file unless absolute paths are provided
+
+# List of download folder paths to clean
+# These folders will be scanned for old files
+download_folders:
+  - "~/Downloads"
+  - "./downloads"
+
+# Number of days to retain files before cleanup
+# Files older than this will be archived or deleted
+retention_days: 30
+
+# Root directory for archived files
+# Required if action is "archive"
+# Files will be organized by category and year-month
+archive_root: "./archived"
+
+# Action to take for old files
+# Options: archive, delete
+# - archive: Move files to archive_root organized by category
+# - delete: Permanently delete files
+action: "archive"
+
+# File type categories to process
+# If not specified, all file types will be processed
+# Available categories: images, documents, videos, audio, archives, executables, code, other
+# Leave empty or null to process all file types
+file_types:
+  - images
+  - documents
+  - videos
+  - archives
+
+# Filename patterns to exclude from cleanup
+# Files matching these patterns will be skipped
+exclude_patterns:
+  - "important"
+  - "keep"
