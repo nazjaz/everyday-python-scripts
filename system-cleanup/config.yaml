@@ -1,0 +1,70 @@
+# System Cleanup Configuration
+
+# Cleanup configuration
+cleanup:
+  # Patterns to identify cache files
+  cache_patterns:
+    - "cache"
+    - ".cache"
+    - "Cache"
+  
+  # Patterns to identify temporary files
+  temp_patterns:
+    - ".tmp"
+    - ".temp"
+    - ".swp"
+    - ".bak"
+    - "~"
+  
+  # Patterns to identify system artifacts
+  artifact_patterns:
+    - ".log"
+    - ".old"
+    - ".bak"
+    - "crash"
+    - "dump"
+
+# Safety configuration
+safety:
+  # Minimum age in days before file can be deleted (0 = no minimum)
+  min_age_days: 0
+  
+  # File extensions that should never be deleted
+  unsafe_extensions:
+    - ".exe"
+    - ".dll"
+    - ".sys"
+    - ".drv"
+    - ".so"
+    - ".dylib"
+    - ".app"
+  
+  # Filename patterns that should never be deleted
+  unsafe_patterns:
+    - "system"
+    - "kernel"
+    - "boot"
+    - "config"
+    - "settings"
+    - "preferences"
+  
+  # Directory paths that should never be touched
+  protected_directories:
+    - "/System"
+    - "/usr"
+    - "/bin"
+    - "/sbin"
+    - "/etc"
+    - "/boot"
+    - "/Windows/System32"
+    - "/Windows/SysWOW64"
+    - "/Program Files"
+    - "/Program Files (x86)"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/cleanup.log"

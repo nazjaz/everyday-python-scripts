@@ -1,0 +1,23 @@
+# Configuration file for Source Folder Organizer
+# All paths are relative to this config file unless absolute paths are provided
+
+# List of source folder paths to organize
+# These folders will be scanned for files to organize
+source_folders:
+  - "./source1"
+  - "./source2"
+
+# Root directory for organized file structure
+# Files will be organized under this directory by source folder name
+destination: "./organized"
+
+# Path to JSON file storing location mappings
+# This file maintains the mapping of original locations to organized locations
+mapping_file: "./location_mapping.json"
+
+# How to handle duplicate files
+# Options: skip, rename, overwrite
+# - skip: Skip duplicate files (default)
+# - rename: Rename duplicate files with _copy suffix
+# - overwrite: Overwrite existing files
+handle_duplicates: "skip"

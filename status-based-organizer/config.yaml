@@ -1,0 +1,176 @@
+# Status-Based File Organizer Configuration
+
+# Source directory to organize
+source_directory: "."
+
+# Status indicators configuration
+status_indicators:
+  completed:
+    # Filename patterns (regex)
+    filename_patterns:
+      - ".*completed.*"
+      - ".*done.*"
+      - ".*finished.*"
+      - ".*final.*"
+      - ".*complete.*"
+      - "^.*_done\\..*$"
+      - "^.*_final\\..*$"
+    
+    # Keywords in filename
+    keywords:
+      - "completed"
+      - "done"
+      - "finished"
+      - "final"
+      - "complete"
+    
+    # Keywords in file content
+    content_keywords:
+      - "status: completed"
+      - "status: done"
+      - "[completed]"
+      - "[done]"
+  
+  in_progress:
+    # Filename patterns
+    filename_patterns:
+      - ".*in.?progress.*"
+      - ".*working.*"
+      - ".*wip.*"
+      - ".*incomplete.*"
+      - "^.*_wip\\..*$"
+      - "^.*_working\\..*$"
+    
+    # Keywords in filename
+    keywords:
+      - "in progress"
+      - "in-progress"
+      - "inprogress"
+      - "working"
+      - "wip"
+      - "incomplete"
+    
+    # Keywords in file content
+    content_keywords:
+      - "status: in progress"
+      - "status: working"
+      - "[wip]"
+      - "[working]"
+  
+  draft:
+    # Filename patterns
+    filename_patterns:
+      - ".*draft.*"
+      - ".*temp.*"
+      - ".*temporary.*"
+      - ".*scratch.*"
+      - "^.*_draft\\..*$"
+      - "^.*_temp\\..*$"
+      - "^.*_tmp\\..*$"
+    
+    # Keywords in filename
+    keywords:
+      - "draft"
+      - "temp"
+      - "temporary"
+      - "tmp"
+      - "scratch"
+    
+    # Keywords in file content
+    content_keywords:
+      - "status: draft"
+      - "[draft]"
+      - "[temp]"
+    
+    # Use file size as indicator (very small files)
+    use_size_indicator: false
+  
+  archived:
+    # Filename patterns
+    filename_patterns:
+      - ".*archive.*"
+      - ".*old.*"
+      - ".*backup.*"
+      - ".*bak.*"
+      - "^.*_archive\\..*$"
+      - "^.*_old\\..*$"
+      - "^.*_backup\\..*$"
+    
+    # Keywords in filename
+    keywords:
+      - "archive"
+      - "archived"
+      - "old"
+      - "backup"
+      - "bak"
+    
+    # Keywords in file content
+    content_keywords:
+      - "status: archived"
+      - "[archived]"
+    
+    # Use file age as indicator (very old files)
+    use_age_indicator: false
+
+# Organization configuration
+organization:
+  # Directory for completed files
+  completed_directory: "./completed"
+  
+  # Directory for in-progress files
+  in_progress_directory: "./in_progress"
+  
+  # Directory for draft files
+  draft_directory: "./draft"
+  
+  # Directory for archived files
+  archived_directory: "./archived"
+  
+  # Default status for files that don't match any indicator
+  default_status: "draft"
+  
+  # Preserve directory structure when organizing
+  preserve_structure: false
+  
+  # Check for duplicate files
+  check_duplicates: true
+  
+  # Skip files if destination already exists
+  skip_duplicates: true
+
+# Filtering configuration
+filtering:
+  # Directories to exclude from processing
+  exclude_directories:
+    - ".git"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "logs"
+    - "completed"
+    - "in_progress"
+    - "draft"
+    - "archived"
+  
+  # File patterns to exclude
+  exclude_files:
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".gitkeep"
+  
+  # File extensions to exclude
+  exclude_extensions:
+    - ".tmp"
+    - ".temp"
+    - ".swp"
+    - ".swo"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/organizer.log"
