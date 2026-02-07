@@ -1,0 +1,124 @@
+# Advanced File Finder Configuration
+
+# Search configuration
+search:
+  # Directory to search in
+  directory: "."
+  
+  # Directories to exclude from search (glob patterns)
+  exclude_directories:
+    - ".git"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "logs"
+
+# Pattern matching configuration
+patterns:
+  # Logic operator for combining patterns: AND or OR
+  logic_operator: "AND"
+  
+  # Size patterns
+  size:
+    # Minimum file size in bytes
+    min_bytes: null
+    
+    # Maximum file size in bytes
+    max_bytes: null
+    
+    # Size ranges (files must match at least one range)
+    ranges:
+      # - min_bytes: 1024
+      #   max_bytes: 1048576  # 1 KB to 1 MB
+  
+  # Date patterns
+  date:
+    # Modification date patterns
+    modified:
+      # Files modified after this date (ISO format or "30 days ago")
+      after: null
+      
+      # Files modified before this date
+      before: null
+      
+      # Files modified within this many days
+      days_ago: null
+    
+    # Creation date patterns
+    created:
+      after: null
+      before: null
+    
+    # Access date patterns
+    accessed:
+      after: null
+      before: null
+  
+  # File type patterns
+  type:
+    # File extensions to match (empty list matches all)
+    extensions:
+      # - ".txt"
+      # - ".pdf"
+      # - ".jpg"
+    
+    # File extensions to exclude
+    exclude_extensions:
+      # - ".tmp"
+      # - ".log"
+    
+    # File type categories to match
+    categories:
+      # - "image"
+      # - "document"
+      # - "video"
+      # - "audio"
+      # - "code"
+  
+  # Filename patterns
+  filename:
+    # Glob patterns (e.g., "*.txt", "file_*")
+    glob:
+      # - "*.txt"
+      # - "report_*.pdf"
+    
+    # Regex patterns
+    regex:
+      # - "^test_.*"
+      # - ".*backup.*"
+    
+    # Contains patterns (case-insensitive)
+    contains:
+      # - "important"
+      # - "draft"
+  
+  # Content patterns
+  content:
+    # Maximum file size to search content (bytes)
+    max_file_size_bytes: 10485760  # 10 MB
+    
+    # Text patterns to search for (case-insensitive)
+    text:
+      # - "TODO"
+      # - "FIXME"
+      # - "password"
+    
+    # Regex patterns to search for in content
+    regex:
+      # - "\\b\\d{3}-\\d{2}-\\d{4}\\b"  # SSN pattern
+      # - "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b"  # Email pattern
+
+# Output configuration
+output:
+  # Output format: text, json, or csv
+  format: "text"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/finder.log"

@@ -1,0 +1,45 @@
+# Book Scraper Configuration
+
+# Data storage settings
+data:
+  directory: data  # Directory for storing reading list and other data files
+
+# Web scraping settings
+scraping:
+  timeout: 30  # Request timeout in seconds
+  delay: 1  # Delay between requests in seconds (be respectful to servers)
+  headers: {}  # Additional HTTP headers (User-Agent set by default)
+  
+  # CSS selectors for extracting book information
+  # Adjust these based on the target website structure
+  selectors:
+    title: "h1, .title, [class*='title']"
+    author: "[class*='author'], .author"
+    isbn: "[class*='isbn'], .isbn"
+    publication_date: "[class*='date'], .date"
+    publisher: "[class*='publisher'], .publisher"
+    description: "[class*='description'], .description"
+    pages: "[class*='pages'], .pages"
+    genres: "[class*='genre'], .genre"
+
+# Reading list settings
+reading_list:
+  auto_save: true  # Automatically save after each operation
+  backup_enabled: true  # Create backup before modifications
+  backup_count: 5  # Number of backups to keep
+
+# Progress tracking settings
+progress:
+  auto_update_status: true  # Automatically update status based on progress
+  # Status transitions:
+  # - 0% -> to_read
+  # - 1-99% -> reading
+  # - 100% -> completed
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/book_scraper.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

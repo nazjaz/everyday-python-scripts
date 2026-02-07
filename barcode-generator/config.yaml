@@ -1,0 +1,36 @@
+# Barcode Generator Configuration
+
+# Barcode settings
+barcode:
+  # Additional barcode formats to load (beyond default: EAN-13, EAN-8, Code128, Code39)
+  # Examples: "ISBN10", "ISBN13", "UPC", "UPC-A", "UPC-E", "I2of5", "MSI"
+  additional_formats: []
+
+  # Writer options for barcode image generation
+  writer_options:
+    # Module width (width of each bar/space)
+    module_width: 0.5
+    # Module height (height of bars)
+    module_height: 15.0
+    # Quiet zone (empty space on sides)
+    quiet_zone: 6.5
+    # Font size for text below barcode
+    font_size: 10
+    # Text distance from barcode
+    text_distance: 5.0
+    # Background color (RGB tuple or color name)
+    background: "white"
+    # Foreground color (RGB tuple or color name)
+    foreground: "black"
+    # Center text below barcode
+    center_text: true
+    # Write text below barcode
+    write_text: true
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

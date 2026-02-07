@@ -1,0 +1,23 @@
+# Configuration file for Book Scraper and Organizer
+# All paths are relative to this config file unless absolute paths are provided
+
+# Path to SQLite database file
+database: "./books.db"
+
+# Output directory for downloaded books
+output_directory: "./books"
+
+# Organization method
+# Options: author, genre, date
+# - author: Organize by author name
+# - genre: Organize by genre
+# - date: Organize by publication date
+organize_by: "author"
+
+# Rate limiting: delay between requests in seconds
+# Be respectful to servers - recommended: 1.0 or higher
+rate_limit: 1.0
+
+# URLs to scrape (can also be provided via command line)
+urls:
+  - "https://www.gutenberg.org/ebooks/1"

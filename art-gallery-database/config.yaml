@@ -1,0 +1,32 @@
+# Art Gallery Database Configuration
+
+# Database configuration
+database:
+  # SQLite database file path
+  path: "art_gallery.db"
+
+# Images configuration
+images:
+  # Directory to store downloaded images
+  directory: "images"
+
+# Scraping configuration
+scraping:
+  # Sources to scrape: wikimedia, metmuseum
+  sources:
+    - "wikimedia"
+    - "metmuseum"
+  
+  # Default limit per source
+  default_limit: 50
+  
+  # Delay between requests (seconds)
+  request_delay: 0.2
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/app.log"
