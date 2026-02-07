@@ -1,0 +1,5 @@
+icalendar==5.0.11  # iCal file format support
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management
+plyer==2.1.0  # Cross-platform desktop notifications (optional)
+tkcalendar==1.6.1  # Calendar date picker widget for tkinter (optional)

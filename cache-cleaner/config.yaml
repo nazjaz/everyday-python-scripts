@@ -1,0 +1,111 @@
+# Cache Cleaner Configuration
+
+# Cache directories to clean (platform-specific)
+cache_directories:
+  # macOS cache directories
+  macos:
+    - "~/Library/Caches"
+    - "~/Library/Application Support/CrashReporter"
+    - "~/Library/Logs"
+    - "~/.Trash"
+    - "/private/var/folders"
+    - "/Library/Caches"
+  
+  # Linux cache directories
+  linux:
+    - "~/.cache"
+    - "~/.local/share/Trash"
+    - "/tmp"
+    - "/var/tmp"
+    - "/var/cache"
+  
+  # Windows cache directories
+  windows:
+    - "%LOCALAPPDATA%\\Temp"
+    - "%TEMP%"
+    - "%TMP%"
+    - "%LOCALAPPDATA%\\Microsoft\\Windows\\INetCache"
+    - "%LOCALAPPDATA%\\Microsoft\\Windows\\Temporary Internet Files"
+
+# File filtering options
+filtering:
+  # Minimum age in days (files older than this will be considered)
+  min_age_days: 7
+  
+  # Maximum age in days (0 = no limit)
+  max_age_days: 0
+  
+  # Minimum file size in bytes (0 = include all)
+  min_file_size: 0
+  
+  # Maximum file size in bytes (0 = no limit)
+  max_file_size: 0
+  
+  # Include hidden files
+  include_hidden: true
+  
+  # Include zero-byte files
+  include_empty: true
+
+# File patterns to include (regex)
+include_patterns:
+  - ".*\\.cache$"
+  - ".*\\.tmp$"
+  - ".*\\.log$"
+  - ".*\\.old$"
+  - ".*~$"
+  - "^.*\\.swp$"
+  - "^.*\\.bak$"
+
+# File patterns to exclude (regex)
+exclude_patterns:
+  - "^\\.git"
+  - "^\\.svn"
+  - "^\\.hg"
+
+# Directory patterns to exclude (regex)
+exclude_directories:
+  - "^\\.git$"
+  - "^\\.svn$"
+  - "^node_modules$"
+  - "^__pycache__$"
+
+# Safety options
+safety:
+  # Dry run mode (preview only, no deletion)
+  dry_run: false
+  
+  # Require confirmation before deletion
+  require_confirmation: true
+  
+  # Maximum total size to delete in one run (bytes, 0 = no limit)
+  max_delete_size: 0
+  
+  # Backup before deletion (not implemented, placeholder)
+  backup_before_delete: false
+
+# Reporting options
+reporting:
+  # Generate detailed report
+  detailed_report: true
+  
+  # Report file
+  report_file: "logs/cache_cleanup_report.txt"
+  
+  # Show file count
+  show_file_count: true
+  
+  # Show size breakdown by directory
+  show_directory_breakdown: true
+  
+  # Show largest files
+  show_largest_files: true
+  largest_files_count: 10
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/cache_cleaner.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

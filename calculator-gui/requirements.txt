@@ -1,0 +1,2 @@
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management

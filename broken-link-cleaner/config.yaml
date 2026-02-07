@@ -1,0 +1,33 @@
+# Broken Link Cleaner Configuration
+
+# Directory to scan for broken symbolic links
+scan_directory: ~/Documents
+
+# Removal log file path (relative to project root or absolute)
+removal_log_file: logs/removed_links.txt
+
+# Exclusions
+exclusions:
+  # Directories to exclude from scanning
+  directories:
+    - ~/.git
+    - node_modules
+    - .venv
+    - venv
+  # Patterns to exclude (matched in link name or path)
+  patterns:
+    - .git
+    - node_modules
+
+# Operations
+operations:
+  recursive: true  # Scan subdirectories recursively
+  dry_run: false  # Set to true to preview without removing links
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/broken_link_cleaner.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
