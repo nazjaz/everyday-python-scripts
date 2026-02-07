@@ -1,0 +1,4 @@
+psutil==5.9.6  # System and process utilities for CPU, memory, disk monitoring
+plyer==2.1.0  # Cross-platform desktop notifications
+pyyaml==6.0.1  # YAML configuration file parsing
+python-dotenv==1.0.0  # Environment variable management

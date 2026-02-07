@@ -1,0 +1,88 @@
+# Temporary File Cleaner Configuration
+
+# Cleanup settings
+cleanup:
+  # Temporary file extensions to identify
+  temp_extensions:
+    - ".tmp"
+    - ".temp"
+    - ".download"
+    - ".part"
+    - ".crdownload"
+    - ".!qB"
+    - ".!ut"
+    - ".partial"
+    - ".cache"
+    - ".bak"
+    - ".swp"
+    - ".lock"
+
+  # Filename patterns that indicate temporary files
+  temp_filename_patterns:
+    - "~$"
+    - ".tmp"
+    - ".temp"
+    - "temp_"
+    - "_temp"
+    - ".cache"
+    - ".lock"
+
+  # Minimum age (days) for incomplete downloads
+  incomplete_min_age_days: 1
+
+  # Minimum size (bytes) - files smaller than this might be incomplete
+  incomplete_min_size_bytes: 1024
+
+# Safety settings
+safety:
+  # Minimum age (days) before file can be deleted
+  # Prevents deletion of very recent files
+  min_age_days: 0
+
+  # Maximum size (bytes) - files larger than this won't be deleted
+  # Set to null to disable size limit
+  max_size_bytes: null
+
+  # Protected patterns - files matching these won't be deleted
+  protected_patterns:
+    - "important"
+    - "backup"
+    - "archive"
+    - ".git"
+    - ".svn"
+
+  # Protected directories - files in these directories won't be deleted
+  protected_directories:
+    - "/System"
+    - "/Library"
+    - "/Applications"
+    - "/usr"
+    - "/bin"
+    - "/sbin"
+    - "/etc"
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+
+# Reporting configuration
+report:
+  # Output file for cleanup report
+  output_file: "cleanup_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

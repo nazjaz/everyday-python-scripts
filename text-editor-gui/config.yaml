@@ -1,0 +1,51 @@
+# Text Editor GUI Configuration
+
+# Editor configuration
+editor:
+  # Window title
+  title: "Text Editor"
+  
+  # Initial window geometry (widthxheight)
+  geometry: "800x600"
+
+# Syntax highlighting configuration
+syntax_highlighting:
+  # Keywords for different languages
+  keywords:
+    - "def"
+    - "class"
+    - "import"
+    - "if"
+    - "else"
+    - "for"
+    - "while"
+  
+  # String patterns
+  string_patterns:
+    - '".*"'
+    - "'.*'"
+  
+  # Comment patterns
+  comment_patterns:
+    - "#.*"
+    - "//.*"
+    - "/\\*.*\\*/"
+  
+  # Number patterns
+  number_patterns:
+    - "\\b\\d+\\.?\\d*\\b"
+  
+  # Tag colors
+  tags:
+    keyword_color: "#0000FF"  # Blue
+    string_color: "#008000"    # Green
+    comment_color: "#808080"  # Gray
+    number_color: "#FF0000"    # Red
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/editor.log"

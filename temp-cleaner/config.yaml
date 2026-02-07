@@ -1,0 +1,45 @@
+# Temp Cleaner Configuration
+
+# Minimum age in days for files to be considered for deletion
+min_age_days: 7
+
+# Temporary directories to clean (empty list uses system defaults)
+temp_directories: []
+# Example manual configuration:
+# temp_directories:
+#   - /tmp
+#   - ~/Library/Caches
+#   - C:\Users\Username\AppData\Local\Temp
+
+# Exclusions
+exclusions:
+  # Directories to exclude from cleaning
+  directories:
+    - ~/.cache/pip
+    - ~/Library/Caches/com.apple
+  # Patterns to exclude (matched in filename or path)
+  patterns:
+    - .lock
+    - .pid
+    - .sock
+  # File extensions to exclude
+  extensions:
+    - .lock
+    - .pid
+  # Process names to exclude (files open by these processes won't be deleted)
+  processes:
+    - python
+    - node
+    - java
+
+# Operations
+operations:
+  dry_run: false  # Set to true to preview without deleting files
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/temp_cleaner.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
