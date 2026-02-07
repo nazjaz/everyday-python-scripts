@@ -1,0 +1,112 @@
+# Priority File Organizer Configuration
+
+# Organization settings
+organization:
+  # Base folder where organized files will be placed
+  base_folder: "organized"
+
+# Priority levels (sorted by priority value, higher = more important)
+priorities:
+  - name: "critical"
+    priority: 5
+    folder: "Critical"
+    criteria:
+      patterns:
+        - "*important*"
+        - "*critical*"
+        - "*urgent*"
+      keywords:
+        - "contract"
+        - "legal"
+        - "tax"
+        - "invoice"
+      extensions:
+        - ".pdf"
+        - ".doc"
+        - ".docx"
+      size_range:
+        min: 0
+        max: 10485760  # 10 MB
+
+  - name: "high"
+    priority: 4
+    folder: "High"
+    criteria:
+      keywords:
+        - "project"
+        - "report"
+        - "presentation"
+      extensions:
+        - ".xlsx"
+        - ".pptx"
+        - ".key"
+
+  - name: "medium"
+    priority: 3
+    folder: "Medium"
+    criteria:
+      extensions:
+        - ".txt"
+        - ".md"
+        - ".rtf"
+      keywords:
+        - "notes"
+        - "draft"
+
+  - name: "low"
+    priority: 2
+    folder: "Low"
+    criteria:
+      extensions:
+        - ".jpg"
+        - ".jpeg"
+        - ".png"
+        - ".gif"
+      keywords:
+        - "temp"
+        - "old"
+
+  - name: "archive"
+    priority: 1
+    folder: "Archive"
+    criteria:
+      extensions:
+        - ".zip"
+        - ".tar"
+        - ".gz"
+        - ".rar"
+      keywords:
+        - "backup"
+        - "archive"
+
+# Duplicate handling
+duplicates:
+  # Action to take with duplicates: "skip", "delete", or "move"
+  action: "skip"
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+    - "organized"  # Skip the organized folder itself
+
+# Reporting configuration
+report:
+  # Output file for organization report
+  output_file: "organization_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"

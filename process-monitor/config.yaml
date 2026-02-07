@@ -1,0 +1,69 @@
+# Process Monitor Configuration
+
+# Monitoring settings
+monitoring:
+  interval: 5  # Check interval in seconds
+  enabled: true  # Enable/disable monitoring
+
+# CPU usage limits
+cpu:
+  enabled: true
+  warning_threshold: 80.0  # Percentage
+  kill_threshold: 95.0  # Percentage - processes above this will be killed
+  check_duration: 10  # Seconds to monitor before killing (must exceed threshold for this duration)
+
+# Memory usage limits
+memory:
+  enabled: true
+  warning_threshold: 80.0  # Percentage of system memory
+  kill_threshold: 90.0  # Percentage - processes above this will be killed
+  absolute_limit_mb: 0  # Absolute limit in MB (0 = disabled, use percentage only)
+  check_duration: 10  # Seconds to monitor before killing
+
+# Process whitelist (processes that should never be killed)
+whitelist:
+  enabled: true
+  process_names:
+    - "kernel_task"  # System processes
+    - "WindowServer"
+    - "loginwindow"
+    - "SystemUIServer"
+    - "Dock"
+    - "Finder"
+  process_ids: []  # Specific process IDs to whitelist
+
+# Process blacklist (processes that should always be monitored more strictly)
+blacklist:
+  enabled: false
+  process_names: []
+  process_ids: []
+
+# Action settings
+actions:
+  kill_on_cpu_exceed: true  # Kill processes exceeding CPU limit
+  kill_on_memory_exceed: true  # Kill processes exceeding memory limit
+  send_warning_first: true  # Send warning notification before killing
+  warning_duration: 30  # Seconds to wait after warning before killing
+
+# Notifications
+notifications:
+  enabled: true
+  notify_on_warning: true  # Notify when process exceeds warning threshold
+  notify_on_kill: true  # Notify when process is killed
+  notification_duration: 10  # Notification display duration in seconds
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/process_monitor.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_killed_processes: true  # Log all killed processes
+  log_warnings: true  # Log warning threshold violations
+
+# Reporting
+reporting:
+  generate_reports: true  # Generate periodic reports
+  report_interval: 3600  # Report interval in seconds (1 hour)
+  report_file: logs/process_monitor_report.txt

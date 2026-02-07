@@ -1,0 +1,63 @@
+# Project Cleanup Configuration
+
+# Source directory to scan for projects
+source_directory: "."
+
+# Archive directory for archived projects
+archive_directory: "./archive"
+
+# Action configuration
+actions:
+  # Archive projects after this many days of inactivity
+  archive_after_days: 90
+  
+  # Remove projects after this many days of inactivity (must be > archive_after_days)
+  remove_after_days: 365
+  
+  # Enable permanent removal (set to false to only archive)
+  enable_removal: false
+
+# Filtering configuration
+filtering:
+  # Directories to exclude from scanning
+  exclude_directories:
+    - ".git"
+    - "archive"
+    - "node_modules"
+    - "__pycache__"
+    - ".pytest_cache"
+  
+  # File patterns to exclude from modification time checks
+  exclude_files:
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".gitkeep"
+  
+  # Files that indicate a directory is a project
+  project_indicators:
+    - "README.md"
+    - "requirements.txt"
+    - "package.json"
+    - "setup.py"
+    - "pyproject.toml"
+    - "Cargo.toml"
+    - "go.mod"
+    - "pom.xml"
+    - "Makefile"
+    - "CMakeLists.txt"
+
+# Safety configuration
+safety:
+  # Minimum free disk space required (in GB) before processing
+  min_free_space_gb: 1
+  
+  # Maximum number of projects to process in one run
+  max_projects_per_run: 100
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/cleanup.log"
