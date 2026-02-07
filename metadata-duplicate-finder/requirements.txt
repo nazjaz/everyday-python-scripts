@@ -1,0 +1,4 @@
+Pillow==10.1.0  # Image processing and EXIF data extraction
+PyYAML==6.0.1  # YAML configuration file parsing
+pytest==7.4.3  # Testing framework
+pytest-cov==4.1.0  # Test coverage reporting

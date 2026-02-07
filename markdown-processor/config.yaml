@@ -1,0 +1,25 @@
+# Configuration file for Markdown Processor
+# All paths are relative to this config file unless absolute paths are provided
+
+# Base path for resolving relative links
+# If not specified, uses the directory of each processed file
+base_path: null
+
+# Whether to validate external HTTP/HTTPS links
+# Note: Requires requests library
+validate_external_links: false
+
+# Table of contents placement
+# Options: top, after-first-header, none
+# - top: Place TOC at the beginning of the file
+# - after-first-header: Place TOC after the first header
+# - none: Do not generate TOC
+toc_placement: "top"
+
+# Minimum header depth for TOC (1-6)
+# Headers below this depth will not appear in TOC
+toc_min_depth: 2
+
+# Maximum header depth for TOC (1-6)
+# Headers above this depth will not appear in TOC
+toc_max_depth: 6

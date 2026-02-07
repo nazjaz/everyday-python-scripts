@@ -1,0 +1,1 @@
+"""Metadata Duplicate Finder package."""

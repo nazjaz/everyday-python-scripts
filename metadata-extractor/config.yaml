@@ -1,0 +1,17 @@
+# Configuration file for Metadata Extractor
+# All paths are relative to this config file unless absolute paths are provided
+
+# Whether to recursively scan directories
+# Default: false
+recursive: false
+
+# File type filters (optional)
+# If specified, only process these file types
+# Options: images, audio, office
+# Leave empty or null to process all supported types
+file_types: null
+
+# Output format preferences
+# Options: json, text, both
+# Default: both
+output_format: "both"

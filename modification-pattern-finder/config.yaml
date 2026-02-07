@@ -1,0 +1,26 @@
+# Configuration file for Modification Pattern Finder
+# All paths are relative to this config file unless absolute paths are provided
+
+# Start time of day for filtering (HH:MM or HH:MM:SS)
+# Files modified before this time will be excluded
+# Leave null or empty for no start limit
+time_start: null
+
+# End time of day for filtering (HH:MM or HH:MM:SS)
+# Files modified after this time will be excluded
+# Leave null or empty for no end limit
+time_end: null
+
+# Days of week to filter (0=Monday, 6=Sunday)
+# Options: monday, tuesday, wednesday, thursday, friday, saturday, sunday
+# Or: mon, tue, wed, thu, fri, sat, sun
+# Leave null or empty to include all days
+days_of_week: null
+
+# File extensions or patterns to include
+# Examples: [".py", ".txt", ".log"]
+# Leave null or empty to include all files
+file_patterns: null
+
+# Whether to recursively scan directories
+recursive: false

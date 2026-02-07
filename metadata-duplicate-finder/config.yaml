@@ -1,0 +1,22 @@
+# Configuration file for Metadata Duplicate Finder
+# All paths are relative to this config file unless absolute paths are provided
+
+# Whether to check EXIF data for duplicates
+# Requires PIL/Pillow library
+check_exif: true
+
+# Whether to check creation/modification dates
+check_dates: true
+
+# Whether to check file sizes
+check_size: false
+
+# Whether to check similar filenames
+check_filename: false
+
+# Similarity threshold for matching (0.0-1.0)
+# Used when --similarity flag is enabled
+similarity_threshold: 0.8
+
+# Whether to recursively scan directories
+recursive: false

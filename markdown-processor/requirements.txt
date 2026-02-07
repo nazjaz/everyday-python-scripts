@@ -1,0 +1,4 @@
+requests==2.31.0  # HTTP library for external link validation (optional)
+PyYAML==6.0.1  # YAML configuration file parsing
+pytest==7.4.3  # Testing framework
+pytest-cov==4.1.0  # Test coverage reporting
