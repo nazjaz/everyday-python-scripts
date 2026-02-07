@@ -1,0 +1,50 @@
+# Job Scraper Configuration
+
+# Output CSV file path (relative to project root or absolute)
+output_file: jobs.csv
+
+# User agent for HTTP requests
+user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+# Request timeout in seconds
+request_timeout: 30
+
+# Rate limiting
+rate_limiting:
+  delay_seconds: 1  # Delay between requests in seconds
+
+# Keyword filters
+filters:
+  # Keywords to match (job must contain at least one if match_any is true)
+  keywords:
+    - python
+    - developer
+    - software engineer
+  # Keywords to exclude (job will be filtered out if it contains any)
+  exclude_keywords:
+    - intern
+    - junior
+  # Match any keyword (true) or all keywords (false)
+  match_any: true
+
+# Job boards to scrape
+job_boards:
+  - name: "Example Job Board"
+    base_url: "https://example-jobs.com"
+    search_url: "https://example-jobs.com/search?q=python&page={page}"
+    max_pages: 3
+    selectors:
+      job_item: ".job-listing"  # CSS selector for job item container
+      title: ".job-title a"  # CSS selector for job title
+      company: ".company-name"  # CSS selector for company name
+      location: ".job-location"  # CSS selector for location
+      description: ".job-description"  # CSS selector for description
+      url: ".job-title a"  # CSS selector for job URL (usually same as title)
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/job_scraper.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

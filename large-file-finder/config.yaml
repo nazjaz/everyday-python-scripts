@@ -1,0 +1,52 @@
+# Large File Finder Configuration
+
+# Directory to scan for large files
+scan_directory: ~/Downloads
+
+# Directory to archive large files
+archive_directory: ~/Archive/LargeFiles
+
+# Size threshold in MB (files larger than this will be reported)
+size_threshold_mb: 100
+
+# Scan options
+scan_options:
+  recursive: true  # Scan subdirectories recursively
+  follow_symlinks: false  # Follow symbolic links
+
+# Exclusions
+exclusions:
+  # Directories to exclude from scanning
+  directories:
+    - ~/.Trash
+    - ~/Library/Caches
+    - node_modules
+    - .git
+    - __pycache__
+  # Patterns to exclude (matched anywhere in path)
+  patterns:
+    - .DS_Store
+    - Thumbs.db
+
+# Archive options
+archive_options:
+  method: move  # Options: move, copy
+  preserve_timestamps: true
+  handle_conflicts: rename  # Options: skip, rename, overwrite
+
+# Operations
+operations:
+  create_archive_directory: true
+  auto_archive: false  # Automatically archive files after finding them
+  dry_run: false  # Preview without making changes
+
+# Report options
+report_file: reports/large_files_report.txt  # Path to save report
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/large_file_finder.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

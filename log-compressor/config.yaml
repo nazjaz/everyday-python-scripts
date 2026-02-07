@@ -1,0 +1,65 @@
+# Log Compressor Configuration
+
+# Target directories to process
+targets:
+  - path: "logs"  # Directory containing log files
+    enabled: true
+    recursive: true  # Process subdirectories recursively
+  # Add more target directories:
+  # - path: "/var/log"
+  #   enabled: true
+  #   recursive: false
+
+# File patterns to match
+file_patterns:
+  - "*.log"  # Standard log files
+  - "*.log.*"  # Rotated log files (e.g., app.log.1)
+  - "*.out"  # Output files
+  - "*.txt"  # Text log files
+
+# Compression settings
+compression:
+  enabled: true
+  min_age_days: 7  # Only compress files older than N days
+  compression_level: 6  # Gzip compression level (1-9, 6 is default)
+  remove_original_after: true  # Remove original after successful compression
+  verify_compression: true  # Verify compressed file integrity
+
+# Retention settings
+retention:
+  enabled: true
+  keep_original_days: 30  # Keep original files for N days after compression
+  keep_compressed_days: 365  # Keep compressed files for N days
+  auto_cleanup: true  # Automatically delete files exceeding retention
+
+# Organization settings
+organization:
+  enabled: true
+  organize_by: "date"  # Options: date, year_month, year, none
+  date_format: "%Y-%m"  # Format for date-based organization (YYYY-MM)
+  output_directory: "compressed_logs"  # Base directory for organized compressed files
+  structure: "year/month"  # Options: year/month, year, flat
+
+# Safety settings
+safety:
+  dry_run: false  # If true, only report what would be compressed without actually doing it
+  confirm_before_delete: false  # Ask for confirmation before deleting originals
+  max_file_size_mb: 0  # Maximum file size to compress in MB (0 = unlimited)
+  skip_recently_modified: true  # Skip files modified in last 24 hours
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/log_compressor.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_compressions: true  # Log all compressions
+  log_deletions: true  # Log all deletions
+
+# Reporting
+reporting:
+  generate_report: true  # Generate summary report
+  report_file: logs/compression_report.txt
+  include_statistics: true  # Include statistics in report
+  include_file_list: true  # Include list of processed files

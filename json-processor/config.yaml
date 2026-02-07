@@ -1,0 +1,55 @@
+# JSON Processor Configuration
+
+# Source directory containing JSON files
+source_directory: ~/Documents/json_files
+
+# Output directory for processed JSON files (optional)
+# If not specified, files will be overwritten in place
+output_directory: processed_json
+
+# Processing options
+processing:
+  # Remove null values from JSON
+  remove_null: true
+  # Sort keys alphabetically
+  sort_keys: true
+  # Indentation for formatted JSON (number of spaces)
+  indent: 2
+  # Ensure ASCII encoding (escape non-ASCII characters)
+  ensure_ascii: false
+  # Use compact separators (no spaces after colons/commas)
+  compact_separators: false
+
+# Backup configuration
+backup:
+  # Enable backup before overwriting files
+  enabled: false
+  # Backup directory
+  directory: backups
+
+# Exclusions
+exclusions:
+  # Directories to exclude from processing
+  directories:
+    - .git
+    - node_modules
+    - __pycache__
+    - .venv
+    - venv
+  # Patterns to exclude (matched in filename)
+  patterns:
+    - .tmp
+    - .bak
+    - _backup
+
+# Operations
+operations:
+  recursive: true  # Scan subdirectories recursively
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/json_processor.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
