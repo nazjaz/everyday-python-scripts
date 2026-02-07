@@ -1,0 +1,31 @@
+# Screenshot Tool Configuration
+
+# Save configuration
+save:
+  # Default directory for saving screenshots
+  default_directory: "./screenshots"
+  
+  # Timestamp format for filenames (strftime format)
+  timestamp_format: "%Y%m%d_%H%M%S"
+  
+  # Default file format
+  default_format: "png"
+
+# Annotation configuration
+annotation:
+  # Default drawing color (hex format)
+  default_color: "#FF0000"
+  
+  # Default line width for drawing tools
+  default_line_width: 3
+  
+  # Default font size for text annotations
+  default_font_size: 20
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "logs/screenshot.log"

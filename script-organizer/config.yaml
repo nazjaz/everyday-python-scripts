@@ -1,0 +1,204 @@
+# Script Organizer Configuration
+
+# Source directory to organize (relative to project root or absolute)
+source_dir: scripts
+
+# Base output directory (relative to project root or absolute)
+output_base_dir: organized
+
+# Language mappings: extension -> language folder
+language_extensions:
+  python:
+    extensions: [py, pyw, pyc, pyo]
+    folder: "Python"
+    description: "Python scripts"
+  
+  javascript:
+    extensions: [js, jsx, mjs, cjs]
+    folder: "JavaScript"
+    description: "JavaScript scripts"
+  
+  typescript:
+    extensions: [ts, tsx]
+    folder: "TypeScript"
+    description: "TypeScript scripts"
+  
+  shell:
+    extensions: [sh, bash, zsh, fish, csh, ksh]
+    folder: "Shell"
+    description: "Shell scripts"
+  
+  perl:
+    extensions: [pl, pm, t]
+    folder: "Perl"
+    description: "Perl scripts"
+  
+  ruby:
+    extensions: [rb, rbw]
+    folder: "Ruby"
+    description: "Ruby scripts"
+  
+  php:
+    extensions: [php, phtml, phar]
+    folder: "PHP"
+    description: "PHP scripts"
+  
+  lua:
+    extensions: [lua]
+    folder: "Lua"
+    description: "Lua scripts"
+  
+  go:
+    extensions: [go]
+    folder: "Go"
+    description: "Go scripts"
+  
+  rust:
+    extensions: [rs]
+    folder: "Rust"
+    description: "Rust scripts"
+  
+  java:
+    extensions: [java, jar]
+    folder: "Java"
+    description: "Java files"
+  
+  c_cpp:
+    extensions: [c, cpp, cc, cxx, h, hpp, hxx]
+    folder: "C_C++"
+    description: "C/C++ files"
+  
+  html:
+    extensions: [html, htm, xhtml]
+    folder: "HTML"
+    description: "HTML files"
+  
+  css:
+    extensions: [css, scss, sass, less]
+    folder: "CSS"
+    description: "CSS files"
+  
+  sql:
+    extensions: [sql, pgsql, mysql]
+    folder: "SQL"
+    description: "SQL scripts"
+  
+  r:
+    extensions: [r, R]
+    folder: "R"
+    description: "R scripts"
+  
+  matlab:
+    extensions: [m]
+    folder: "MATLAB"
+    description: "MATLAB scripts"
+  
+  powershell:
+    extensions: [ps1, psm1, pssc]
+    folder: "PowerShell"
+    description: "PowerShell scripts"
+  
+  batch:
+    extensions: [bat, cmd]
+    folder: "Batch"
+    description: "Batch scripts"
+  
+  other:
+    extensions: []
+    folder: "Other"
+    description: "Other scripts"
+
+# Shebang language detection
+shebang_patterns:
+  python:
+    patterns: ['python', 'python2', 'python3', 'pypy', 'env python']
+    folder: "Python"
+  
+  node:
+    patterns: ['node', 'nodejs', 'iojs', 'env node']
+    folder: "JavaScript"
+  
+  shell:
+    patterns: ['sh', 'bash', 'zsh', 'fish', 'csh', 'ksh', 'dash']
+    folder: "Shell"
+  
+  perl:
+    patterns: ['perl', 'env perl']
+    folder: "Perl"
+  
+  ruby:
+    patterns: ['ruby', 'env ruby']
+    folder: "Ruby"
+  
+  php:
+    patterns: ['php', 'env php']
+    folder: "PHP"
+  
+  lua:
+    patterns: ['lua', 'env lua']
+    folder: "Lua"
+  
+  tcl:
+    patterns: ['tcl', 'tclsh', 'wish', 'env tcl']
+    folder: "TCL"
+  
+  awk:
+    patterns: ['awk', 'gawk', 'mawk', 'env awk']
+    folder: "AWK"
+  
+  sed:
+    patterns: ['sed', 'env sed']
+    folder: "SED"
+
+# Default folder for scripts that don't match any language
+default_folder: "Unknown"
+
+# File organization options
+options:
+  # Move files (true) or copy files (false)
+  move_files: true
+  
+  # Preserve directory structure from source
+  preserve_structure: false
+  
+  # Create subfolders by extension
+  create_extension_subfolders: false
+  
+  # Dry run mode (don't actually move files, just show what would happen)
+  dry_run: false
+  
+  # Priority: extension (check extension first) or shebang (check shebang first)
+  detection_priority: "extension"  # Options: extension, shebang
+
+# Exclude patterns (regex)
+exclude_patterns:
+  - '^\\.'  # Hidden files
+  - '\\.tmp$'  # Temporary files
+  - '\\.log$'  # Log files
+  - '\\.bak$'  # Backup files
+
+# Exclude directories (regex)
+exclude_directories:
+  - '^\\.git$'
+  - '^\\.venv$'
+  - '^__pycache__$'
+  - '^node_modules$'
+  - '^\\.idea$'
+  - '^\\.vscode$'
+
+# File handling options
+file_handling:
+  # What to do if destination file already exists
+  # Options: skip, overwrite, rename
+  on_conflict: rename
+  
+  # Maximum filename length (0 = no limit)
+  max_filename_length: 255
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/script_organizer.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

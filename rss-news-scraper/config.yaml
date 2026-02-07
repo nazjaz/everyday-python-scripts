@@ -1,0 +1,129 @@
+# RSS News Scraper Configuration
+
+# RSS feed sources
+rss_feeds:
+  - name: "BBC News"
+    url: "http://feeds.bbci.co.uk/news/rss.xml"
+    category: "general"
+  - name: "Reuters Top News"
+    url: "https://www.reuters.com/rssFeed/topNews"
+    category: "general"
+  - name: "TechCrunch"
+    url: "https://techcrunch.com/feed/"
+    category: "technology"
+  - name: "Science Daily"
+    url: "https://www.sciencedaily.com/rss/all.xml"
+    category: "science"
+
+# Database configuration
+database:
+  file: data/news_database.db  # SQLite database file path
+  create_tables: true  # Create tables if they don't exist
+
+# Topic categorization settings
+categorization:
+  enabled: true
+  method: keyword  # Options: keyword, simple
+  categories:
+    technology:
+      keywords:
+        - "tech"
+        - "software"
+        - "computer"
+        - "internet"
+        - "digital"
+        - "ai"
+        - "artificial intelligence"
+        - "cyber"
+        - "startup"
+        - "app"
+        - "mobile"
+        - "cloud"
+    science:
+      keywords:
+        - "science"
+        - "research"
+        - "study"
+        - "discovery"
+        - "scientists"
+        - "laboratory"
+        - "experiment"
+        - "medical"
+        - "health"
+        - "disease"
+    business:
+      keywords:
+        - "business"
+        - "economy"
+        - "market"
+        - "stock"
+        - "trade"
+        - "company"
+        - "corporate"
+        - "financial"
+        - "bank"
+        - "investment"
+    politics:
+      keywords:
+        - "politics"
+        - "government"
+        - "election"
+        - "president"
+        - "congress"
+        - "policy"
+        - "law"
+        - "senate"
+        - "vote"
+    sports:
+      keywords:
+        - "sports"
+        - "football"
+        - "basketball"
+        - "baseball"
+        - "soccer"
+        - "olympics"
+        - "championship"
+        - "game"
+        - "player"
+    entertainment:
+      keywords:
+        - "entertainment"
+        - "movie"
+        - "film"
+        - "music"
+        - "celebrity"
+        - "actor"
+        - "television"
+        - "tv"
+        - "show"
+  default_category: "general"  # Category for uncategorized items
+
+# Daily summary settings
+daily_summary:
+  enabled: true
+  generate_time: "00:00"  # Time to generate summary (HH:MM)
+  output_file: logs/daily_summary_{date}.txt  # Summary file path
+  include_categories: true  # Include category breakdown
+  include_top_headlines: true  # Include top headlines per category
+  top_headlines_count: 5  # Number of top headlines per category
+  summary_format: text  # Options: text, markdown
+
+# Scraping settings
+scraping:
+  interval: 3600  # Scrape interval in seconds (1 hour)
+  max_items_per_feed: 50  # Maximum items to fetch per feed
+  timeout: 30  # Request timeout in seconds
+  user_agent: "RSS-News-Scraper/1.0"  # User agent for requests
+
+# Data retention
+retention:
+  days_to_keep: 30  # Number of days to keep headlines in database
+  auto_cleanup: true  # Automatically remove old entries
+
+# Logging configuration
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: logs/rss_scraper.log
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

@@ -1,0 +1,39 @@
+# Similar File Finder Configuration
+
+# Similarity algorithm settings
+similarity:
+  # Algorithm to use: "sequence", "levenshtein", or "jaro_winkler"
+  algorithm: "sequence"
+
+  # Similarity threshold (0.0 to 1.0)
+  # Files with similarity >= threshold will be reported
+  threshold: 0.8
+
+  # What to compare: "name" (filename without extension) or "full_name" (with extension)
+  compare_by: "name"
+
+# Scanning configuration
+scan:
+  # Patterns to skip during scanning
+  skip_patterns:
+    - ".git"
+    - "__pycache__"
+    - ".venv"
+    - "node_modules"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - ".idea"
+    - ".vscode"
+
+# Reporting configuration
+report:
+  # Output file for similar files report
+  output_file: "similar_files_report.txt"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path
+  file: "logs/app.log"
